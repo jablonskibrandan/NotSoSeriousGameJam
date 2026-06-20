@@ -45,7 +45,7 @@ func try_spend_currency(amount: int) -> bool:
 	currency_changed.emit(current_currency)
 	return true
 	
-func _on_planet_rotation_completed(rotation_amount: int) -> void:
+func on_planet_rotation_completed(rotation_amount: int) -> void:
 	total_rotations_seen += rotation_amount
 
 	print("Planet rotated. Total seen by UpgradeManager: ", total_rotations_seen)

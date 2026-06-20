@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://7qjgsrobdnoh" path="res://Assets/Scripts/planet_orbit.gd" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://dljbp5ty5k08f" path="res://Assets/Scripts/hud.gd" id="2_e2o6t"]
-[ext_resource type="Script" uid="uid://d3dv5r72schbe" path="res://Assets/Scripts/update_manager.gd" id="3_feb5d"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_mwb40"]
+[ext_resource type="Script" uid="uid://d3dv5r72schbe" path="res://Assets/Scripts/upgrade_manager.gd" id="3_feb5d"]
+[ext_resource type="Script" uid="uid://5io7r1whk50s" path="res://Assets/Scripts/upgrade_button_config.gd" id="4_7jktm"]
+[ext_resource type="PackedScene" uid="uid://dw43uo4g753qt" path="res://Sun Stuff/sun.tscn" id="4_fc0e3"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_80nbo"]
 
@@ -12,10 +12,23 @@
 glow_enabled = true
 glow_intensity = 1.8
 
-[node name="World" type="Node3D" unique_id=1189423145]
+[sub_resource type="Resource" id="Resource_ryrav"]
+script = ExtResource("4_7jktm")
+required_rotations = 20
+button_path = NodePath("../HUD/SpeedUp5")
+spin_increase_amount = 5.0
+currency_cost = 250
+metadata/_custom_type_script = "uid://5io7r1whk50s"
 
-[node name="Sun" type="MeshInstance3D" parent="." unique_id=1728579074]
-mesh = SubResource("BoxMesh_mwb40")
+[sub_resource type="Resource" id="Resource_eow3j"]
+script = ExtResource("4_7jktm")
+required_rotations = 40
+button_path = NodePath("../HUD/SpeedUp10")
+spin_increase_amount = 10.0
+currency_cost = 500
+metadata/_custom_type_script = "uid://5io7r1whk50s"
+
+[node name="World" type="Node3D" unique_id=1189423145]
 
 [node name="Planet" type="MeshInstance3D" parent="." unique_id=171781804 node_paths=PackedStringArray("orbit_center")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.078276)
@@ -69,8 +82,12 @@ offset_bottom = 201.0
 scale = Vector2(2.0769968, 1.4400005)
 text = "Add +10 Spin"
 
-[node name="UpdateManager" type="Node" parent="." unique_id=1484635140]
+[node name="UpgradeManager" type="Node" parent="." unique_id=1484635140 node_paths=PackedStringArray("planet_orbit")]
 script = ExtResource("3_feb5d")
+planet_orbit = NodePath("../Planet")
+upgrade_button_configs = Array[ExtResource("4_7jktm")]([SubResource("Resource_ryrav"), SubResource("Resource_eow3j")])
 
-[connection signal="pressed" from="HUD/SpeedUp5" to="UpdateManager" method="_on_speed_up_pressed" binds= [5, 250]]
-[connection signal="pressed" from="HUD/SpeedUp10" to="UpdateManager" method="_on_speed_up_pressed" binds= [10, 500]]
+[node name="Sun" parent="." unique_id=1936071803 instance=ExtResource("4_fc0e3")]
+
+[connection signal="pressed" from="HUD/SpeedUp5" to="UpgradeManager" method="on_upgrade_button_pressed"]
+[connection signal="pressed" from="HUD/SpeedUp10" to="Planet" method="on_upgrade_button_pressed"]
