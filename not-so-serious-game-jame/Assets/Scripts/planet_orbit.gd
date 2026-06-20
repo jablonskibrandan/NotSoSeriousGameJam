@@ -96,9 +96,12 @@ func decay_drag_boost(delta: float) -> void:
 		drag_decay * delta
 	)
 
-
 # TODO: Currently buttons just add to the base spin and that's that. But maybe we want to do something different here?
 # This applies the totality of all upgrades to the base spin
 func increase_base_spin_per_second(upgrade_boost: float) -> void:
 	base_spin_degrees_per_second += upgrade_boost
 	print(base_spin_degrees_per_second)
+	
+func increase_drag_spin_strength(drag_strength_boost: float) -> void: 
+	drag_strength += drag_strength_boost
+	print(drag_strength)

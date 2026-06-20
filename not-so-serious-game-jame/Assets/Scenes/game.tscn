@@ -14,18 +14,30 @@ glow_intensity = 1.8
 
 [sub_resource type="Resource" id="Resource_ryrav"]
 script = ExtResource("4_fw1vi")
-required_rotations = 20
 button_path = NodePath("../HUD/SpeedUp5")
-spin_increase_amount = 5.0
+display_name = "Kites"
+required_amount = 1
 currency_cost = 250
+spin_increase_amount = 5.0
 metadata/_custom_type_script = "uid://5io7r1whk50s"
 
 [sub_resource type="Resource" id="Resource_eow3j"]
 script = ExtResource("4_fw1vi")
-required_rotations = 40
 button_path = NodePath("../HUD/SpeedUp10")
-spin_increase_amount = 10.0
+display_name = "Windmills"
+required_amount = 10
 currency_cost = 500
+spin_increase_amount = 10.0
+metadata/_custom_type_script = "uid://5io7r1whk50s"
+
+[sub_resource type="Resource" id="Resource_hni1o"]
+script = ExtResource("4_fw1vi")
+button_path = NodePath("../HUD/SpeedUp100")
+display_name = "Rockets"
+required_amount = 100
+currency_cost = 1000
+effect_type = 1
+drag_strength_bonus = 1.0
 metadata/_custom_type_script = "uid://5io7r1whk50s"
 
 [node name="World" type="Node3D" unique_id=1189423145]
@@ -82,12 +94,21 @@ offset_bottom = 201.0
 scale = Vector2(2.0769968, 1.4400005)
 text = "Add +10 Spin"
 
+[node name="SpeedUp100" type="Button" parent="HUD" unique_id=1902891513]
+offset_left = 1352.0001
+offset_top = 240.99998
+offset_right = 1460.0001
+offset_bottom = 272.0
+scale = Vector2(2.0769968, 1.4400005)
+text = "Add +1 drag"
+
 [node name="UpgradeManager" type="Node" parent="." unique_id=1484635140 node_paths=PackedStringArray("planet_orbit")]
 script = ExtResource("3_of3jj")
 planet_orbit = NodePath("../Planet")
-upgrade_button_configs = Array[ExtResource("4_fw1vi")]([SubResource("Resource_ryrav"), SubResource("Resource_eow3j")])
+upgrade_button_configs = Array[ExtResource("4_fw1vi")]([SubResource("Resource_ryrav"), SubResource("Resource_eow3j"), SubResource("Resource_hni1o")])
 
 [node name="Sun" parent="." unique_id=1936071803 instance=ExtResource("5_tpq0m")]
 
 [connection signal="pressed" from="HUD/SpeedUp5" to="UpgradeManager" method="on_upgrade_button_pressed" binds= [NodePath("../HUD/SpeedUp5")]]
 [connection signal="pressed" from="HUD/SpeedUp10" to="UpgradeManager" method="on_upgrade_button_pressed" binds= [NodePath("../HUD/SpeedUp10")]]
+[connection signal="pressed" from="HUD/SpeedUp100" to="UpgradeManager" method="on_upgrade_button_pressed" binds= [NodePath("../HUD/SpeedUp100")]]
