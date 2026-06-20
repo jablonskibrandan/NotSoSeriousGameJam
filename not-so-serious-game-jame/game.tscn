@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://cggm7p63r3g4j"]
+
+[ext_resource type="Script" uid="uid://7qjgsrobdnoh" path="res://Assets/Scripts/planet_orbit.gd" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://dljbp5ty5k08f" path="res://Assets/Scripts/hud.gd" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://d3dv5r72schbe" path="res://Assets/Scripts/update_manager.gd" id="3_feb5d"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mwb40"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_80nbo"]
+
+[sub_resource type="Environment" id="Environment_80nbo"]
+glow_enabled = true
+glow_intensity = 1.8
+
+[node name="World" type="Node3D" unique_id=1189423145]
+
+[node name="Sun" type="MeshInstance3D" parent="." unique_id=1728579074]
+mesh = SubResource("BoxMesh_mwb40")
+
+[node name="Planet" type="MeshInstance3D" parent="." unique_id=171781804 node_paths=PackedStringArray("orbit_center")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.078276)
+mesh = SubResource("SphereMesh_80nbo")
+script = ExtResource("1_80nbo")
+orbit_center = NodePath("../Sun")
+drag_spin_boost = 0.125
+resources_per_day = 250
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1327019929]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 0.27405453, 0, -1, -1.1979304e-08, 0, 25, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=729853811]
+environment = SubResource("Environment_80nbo")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=545062324]
+script = ExtResource("2_e2o6t")
+
+[node name="CurrentYearLengthLabel" type="Label" parent="HUD" unique_id=1682659920]
+anchors_preset = -1
+anchor_right = 0.021000002
+anchor_bottom = 0.021000002
+offset_left = 194.0
+offset_top = 157.0
+offset_right = 193.68
+offset_bottom = 157.31999
+scale = Vector2(2.0400019, 1.6799994)
+text = "TEST"
+
+[node name="CurrentCurrencyLabel" type="Label" parent="HUD" unique_id=1489895670]
+offset_left = 199.00002
+offset_top = 207.99998
+offset_right = 244.00002
+offset_bottom = 230.99998
+scale = Vector2(1.4000024, 1.44)
+text = "TEST2"
+
+[node name="SpeedUp5" type="Button" parent="HUD" unique_id=623380849]
+offset_left = 1356.0
+offset_top = 88.0
+offset_right = 1364.0
+offset_bottom = 96.0
+scale = Vector2(2.0769968, 1.4400005)
+text = "Add +5 Spin"
+
+[node name="SpeedUp10" type="Button" parent="HUD" unique_id=1479493310]
+offset_left = 1356.0001
+offset_top = 170.0
+offset_right = 1455.0001
+offset_bottom = 201.0
+scale = Vector2(2.0769968, 1.4400005)
+text = "Add +10 Spin"
+
+[node name="UpdateManager" type="Node" parent="." unique_id=1484635140]
+script = ExtResource("3_feb5d")
+
+[connection signal="pressed" from="HUD/SpeedUp5" to="UpdateManager" method="_on_speed_up_pressed" binds= [5, 250]]
+[connection signal="pressed" from="HUD/SpeedUp10" to="UpdateManager" method="_on_speed_up_pressed" binds= [10, 500]]
