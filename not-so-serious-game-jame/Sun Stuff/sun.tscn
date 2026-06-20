@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dw43uo4g753qt"]
+
+[ext_resource type="PackedScene" uid="uid://d3tp6hsmwn0wu" path="res://Sun Stuff/Sun.glb" id="1_iveel"]
+[ext_resource type="Shader" path="res://sun stuff/InnerSun.gdshader" id="2_enfo0"]
+[ext_resource type="Shader" path="res://sun stuff/OuterSun.gdshader" id="2_gtd5v"]
+
+[sub_resource type="Gradient" id="Gradient_gxffh"]
+offsets = PackedFloat32Array(0, 0.45530728, 1)
+colors = PackedColorArray(0.99999994, 0.8281749, 0.31940806, 1, 1, 0.85490197, 0.11764706, 1, 1, 0.52156866, 0.2509804, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dhcfm"]
+gradient = SubResource("Gradient_gxffh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2nmf8"]
+render_priority = 0
+shader = ExtResource("2_enfo0")
+shader_parameter/frensel_gradient_tex = SubResource("GradientTexture1D_dhcfm")
+shader_parameter/emission_strength = 1.0
+
+[sub_resource type="Gradient" id="Gradient_enfo0"]
+colors = PackedColorArray(1, 0.52156866, 0.2509804, 1, 0.9783289, 0.9070671, 0.23128146, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gxffh"]
+gradient = SubResource("Gradient_enfo0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_enfo0"]
+render_priority = 0
+shader = ExtResource("2_gtd5v")
+shader_parameter/frensel_gradient_tex = SubResource("GradientTexture1D_gxffh")
+shader_parameter/emission_strength = 1.0
+
+[node name="Sun" unique_id=1936071803 instance=ExtResource("1_iveel")]
+
+[node name="Icosphere" parent="." index="0" unique_id=2097001291]
+surface_material_override/0 = SubResource("ShaderMaterial_2nmf8")
+
+[node name="Icosphere_002" parent="." index="1" unique_id=316578849]
+transform = Transform3D(0.9336917, 0.21792258, -0.02026234, -0.21826772, 0.9336963, -0.015854655, 0.01612491, 0.02004794, 0.9586549, -0.001187297, 0, 0.0012953063)
+instance_shader_parameters/scale_variation = 0.605
+instance_shader_parameters/variation = 0.605
+surface_material_override/0 = SubResource("ShaderMaterial_enfo0")
+
+[node name="Icosphere_001" parent="." index="2" unique_id=302784246]
+transform = Transform3D(0.72243834, 0.11262657, 0.7452074, 0.7368191, 0.111522146, -0.7311611, -0.15848209, 1.0318984, -0.0023156302, -0.001187297, 0, 0.0012953063)
+instance_shader_parameters/scale_variation = 0.43
+instance_shader_parameters/variation = 0.43
+surface_material_override/0 = SubResource("ShaderMaterial_enfo0")
+
+[node name="Icosphere_003" parent="." index="3" unique_id=966546124]
+transform = Transform3D(1.144, 0, 0, 0, -1.1401843, 0.09335868, 0, -0.09335868, -1.1401843, -0.013261426, 0, 0.014467828)
+instance_shader_parameters/scale_variation = 0.78
+instance_shader_parameters/variation = 0.78
+surface_material_override/0 = SubResource("ShaderMaterial_enfo0")
+
+[node name="Icosphere_004" parent="." index="4" unique_id=1906673018]
+transform = Transform3D(1.2444993, 0, -0.507501, 0, 1.344, 0, 0.507501, 0, 1.2444993, -0.013261426, 0, 0.014467828)
+instance_shader_parameters/scale_variation = 8.97
+instance_shader_parameters/variation = 0.725
+surface_material_override/0 = SubResource("ShaderMaterial_enfo0")
