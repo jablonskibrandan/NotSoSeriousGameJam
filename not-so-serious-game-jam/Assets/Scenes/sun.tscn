@@ -27,25 +27,25 @@ gradient = SubResource("Gradient_enfo0")
 render_priority = 0
 shader = ExtResource("2_gtd5v")
 shader_parameter/frensel_gradient_tex = SubResource("GradientTexture1D_gxffh")
-shader_parameter/emission_strength = 1.0
+shader_parameter/emission_strength = 2.0
 
 [node name="Sun" unique_id=1936071803 instance=ExtResource("1_iveel")]
 
-[node name="Icosphere" parent="." index="0" unique_id=205275359]
+[node name="Icosphere" parent="." index="0" unique_id=586327637]
 surface_material_override/0 = SubResource("ShaderMaterial_2nmf8")
 
-[node name="Icosphere_002" parent="." index="1" unique_id=186109808]
+[node name="Icosphere_002" parent="." index="1" unique_id=791097007]
 transform = Transform3D(0.9336917, 0.21792258, -0.02026234, -0.21826772, 0.9336963, -0.015854655, 0.01612491, 0.02004794, 0.9586549, -0.001187297, 0, 0.0012953063)
 surface_material_override/0 = SubResource("ShaderMaterial_enfo0")
 
-[node name="Icosphere_001" parent="." index="2" unique_id=1116884585]
+[node name="Icosphere_001" parent="." index="2" unique_id=1121753253]
 transform = Transform3D(0.72243834, 0.11262657, 0.7452074, 0.7368191, 0.111522146, -0.7311611, -0.15848209, 1.0318984, -0.0023156302, -0.001187297, 0, 0.0012953063)
 surface_material_override/0 = SubResource("ShaderMaterial_enfo0")
 
-[node name="Icosphere_003" parent="." index="3" unique_id=1998754277]
+[node name="Icosphere_003" parent="." index="3" unique_id=1201636041]
 transform = Transform3D(1.144, 0, 0, 0, -1.1401843, 0.09335868, 0, -0.09335868, -1.1401843, -0.013261426, 0, 0.014467828)
 surface_material_override/0 = SubResource("ShaderMaterial_enfo0")
 
-[node name="Icosphere_004" parent="." index="4" unique_id=1087958587]
+[node name="Icosphere_004" parent="." index="4" unique_id=1305107834]
 transform = Transform3D(1.2444993, 0, -0.507501, 0, 1.344, 0, 0.507501, 0, 1.2444993, -0.013261426, 0, 0.014467828)
 surface_material_override/0 = SubResource("ShaderMaterial_enfo0")

@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://t0t6ran53oxm"]
+
+[ext_resource type="Script" uid="uid://bnks2l6b6aj1x" path="res://Assets/planet/spinnable-object.gd" id="1_ql6qr"]
+[ext_resource type="Texture2D" uid="uid://b4cmxwd56imky" path="res://Assets/Art/skybox/test_space_skybox/panorama_image.png" id="1_sedsa"]
+[ext_resource type="PackedScene" uid="uid://b225p2cyjgsjj" path="res://Assets/Art/earth/LowPolyClouds.glb" id="2_75500"]
+[ext_resource type="PackedScene" uid="uid://blaqji7pcslyd" path="res://Assets/planet/planet-continents.tscn" id="3_h2oxx"]
+[ext_resource type="PackedScene" uid="uid://boifo1wodse1x" path="res://Assets/planet/planet-water.tscn" id="4_sedsa"]
+[ext_resource type="Script" uid="uid://ch5ric2wnrrn8" path="res://Assets/camera/orbit_cam.gd" id="5_h2oxx"]
+[ext_resource type="PackedScene" uid="uid://dw43uo4g753qt" path="res://Assets/Scenes/sun.tscn" id="7_y2k3q"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_40y28"]
+panorama = ExtResource("1_sedsa")
+
+[sub_resource type="Sky" id="Sky_l7e31"]
+sky_material = SubResource("PanoramaSkyMaterial_40y28")
+
+[sub_resource type="Environment" id="Environment_g4v7s"]
+background_mode = 2
+sky = SubResource("Sky_l7e31")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+radius = 4.0
+
+[node name="Node3D" type="Node3D" unique_id=165976986]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=625994666]
+environment = SubResource("Environment_g4v7s")
+
+[node name="SpinnableObject" type="RigidBody3D" parent="." unique_id=235309322]
+script = ExtResource("1_ql6qr")
+angular_dampning = 0.5
+mouse_brake_amount = 5.0
+metadata/_custom_type_script = "uid://bnks2l6b6aj1x"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpinnableObject" unique_id=183524344]
+shape = SubResource("SphereShape3D_g4v7s")
+debug_color = Color(0, 0.6, 0.69803923, 0.7411765)
+
+[node name="LowPolyContinents" parent="SpinnableObject" unique_id=1481491300 instance=ExtResource("3_h2oxx")]
+
+[node name="LowPolyOcean" parent="SpinnableObject" unique_id=80674319 instance=ExtResource("4_sedsa")]
+
+[node name="OrbitCam" type="Camera3D" parent="." unique_id=559926785 node_paths=PackedStringArray("anchor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.653574, 0)
+script = ExtResource("5_h2oxx")
+anchor = NodePath("../SpinnableObject")
+initial_angle_deg = Vector2(0, -45)
+initial_distance = 10.0
+max_zoom_distance = 40.0
+zoom_sensitivity = 2.0
+metadata/_custom_type_script = "uid://ch5ric2wnrrn8"
+
+[node name="LowPolyClouds" parent="." unique_id=1507650724 instance=ExtResource("2_75500")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=987480691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30.862347)
+light_energy = 16.0
+omni_range = 170.18687
+
+[node name="Sun" parent="." unique_id=1936071803 instance=ExtResource("7_y2k3q")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -82)

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://boifo1wodse1x"]
+
+[ext_resource type="PackedScene" uid="uid://btekcf184srjp" path="res://Assets/Art/earth/LowPolyOcean.glb" id="1_5ldtv"]
+[ext_resource type="Material" uid="uid://p3xwbyc8b6ll" path="res://Assets/Art/earth/ocean_material.tres" id="2_5ldtv"]
+
+[node name="LowPolyOcean" unique_id=80674319 instance=ExtResource("1_5ldtv")]
+
+[node name="OCEAN" parent="." index="0" unique_id=431519755]
+material_override = ExtResource("2_5ldtv")

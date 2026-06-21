@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://blaqji7pcslyd"]
+
+[ext_resource type="PackedScene" uid="uid://dghlgmlo3scqo" path="res://Assets/Art/earth/LowPolyContinents.glb" id="1_kho3y"]
+[ext_resource type="Texture2D" uid="uid://bifn81m4j7ixq" path="res://Assets/Art/earth/Land_Gradient.png" id="2_vg7xv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p17pw"]
+albedo_texture = ExtResource("2_vg7xv")
+
+[node name="LowPolyContinents" unique_id=1481491300 instance=ExtResource("1_kho3y")]
+
+[node name="LAND" parent="." index="0" unique_id=388230107]
+material_override = SubResource("StandardMaterial3D_p17pw")

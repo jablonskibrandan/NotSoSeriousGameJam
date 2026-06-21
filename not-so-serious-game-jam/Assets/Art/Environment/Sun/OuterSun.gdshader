@@ -5,7 +5,7 @@ render_mode unshaded, blend_mix, depth_draw_never, depth_test_default, cull_fron
 uniform sampler2D frensel_gradient_tex;
 uniform float emission_strength = 2.0;
 
-instance uniform float variation = 0.0;
+instance uniform float variation = 1.0;
 instance uniform float scale_variation = 0.0;
 
 void fragment(){
@@ -26,6 +26,4 @@ void fragment(){
 	
 	//mask
 	ALPHA = step(0.9+(scale_variation*0.01), wave);
-	
-
-}
+	}
