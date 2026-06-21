@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dw43uo4g753qt"]
 
-[ext_resource type="PackedScene" uid="uid://d3tp6hsmwn0wu" path="res://Assets/Art/Environments/Sun/Sun.glb" id="1_iveel"]
-[ext_resource type="Shader" path="res://Assets/Art/Environment/Sun/InnerSun.gdshader" id="2_enfo0"]
-[ext_resource type="Shader" path="res://Assets/Art/Environment/Sun/OuterSun.gdshader" id="2_gtd5v"]
+[ext_resource type="PackedScene" uid="uid://soxb817m80l0" path="res://Assets/Art/Environment/Sun/Sun.glb" id="1_iveel"]
+[ext_resource type="Shader" uid="uid://bt8ugitiwph2p" path="res://Assets/Art/Environment/Sun/InnerSun.gdshader" id="2_enfo0"]
+[ext_resource type="Shader" uid="uid://bwaf6mk1xuhph" path="res://Assets/Art/Environment/Sun/OuterSun.gdshader" id="2_gtd5v"]
 
 [sub_resource type="Gradient" id="Gradient_gxffh"]
 offsets = PackedFloat32Array(0, 0.45530728, 1)
