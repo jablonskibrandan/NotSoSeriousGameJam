@@ -1,0 +1,32 @@
+# Godot generated files
+.import/
+*.import
+*.uid
+.export/
+export.cfg
+export_credentials.cfg
+Imported translations (automatically generated from CSV files)
+*.translation
+
+# Godot build system
+*.gen.*
+compile_commands.json
+platform/windows/godot_res.res
+*.ninja
+.ninja/
+run_ninja_env.bat
+
+# Binary and build output
+*.a
+*.ax
+*.d
+*.dll
+*.lib
+*.lo
+*.o
+*.os
+*.ox
+*.Plo
+*.so
+*.debug
+st[A-Za-z0-9]{6}

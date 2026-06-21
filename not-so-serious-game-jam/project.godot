@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="NotSoSeriousGameJame"
+run/main_scene="res://Assets/Scenes/game.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManagerObject="*uid://c4nnjckdeb1iv"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [physics]
 
