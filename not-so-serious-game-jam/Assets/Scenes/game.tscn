@@ -50,9 +50,6 @@ orbit_center = NodePath("../Sun")
 drag_spin_boost = 0.125
 resources_per_day = 250
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1327019929]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 0.27405453, 0, -1, -1.1979304e-08, 0, 25, 0)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=729853811]
 environment = SubResource("Environment_80nbo")
 
@@ -108,6 +105,9 @@ planet_orbit = NodePath("../Planet")
 upgrade_button_configs = Array[ExtResource("4_fw1vi")]([SubResource("Resource_ryrav"), SubResource("Resource_eow3j"), SubResource("Resource_hni1o")])
 
 [node name="Sun" parent="." unique_id=1936071803 instance=ExtResource("5_tpq0m")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1327019929]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 25, 0)
 
 [connection signal="pressed" from="HUD/SpeedUp5" to="UpgradeManager" method="on_upgrade_button_pressed" binds= [NodePath("../HUD/SpeedUp5")]]
 [connection signal="pressed" from="HUD/SpeedUp10" to="UpgradeManager" method="on_upgrade_button_pressed" binds= [NodePath("../HUD/SpeedUp10")]]
