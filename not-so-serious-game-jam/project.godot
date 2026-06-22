@@ -28,7 +28,8 @@ window/size/viewport_height=1080
 
 folder_colors={
 "res://Assets/camera/": "orange",
-"res://Assets/planet/": "orange"
+"res://Assets/planet/": "orange",
+"res://Assets/planet2/": "orange"
 }
 
 [input]

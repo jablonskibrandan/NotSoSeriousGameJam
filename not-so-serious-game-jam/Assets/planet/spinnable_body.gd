@@ -9,8 +9,6 @@ var cummulative_angle:float=0.0 #The angle spun by the planet overall
 var hovering:bool=false
 var dragging:bool=false
 
-
-
 var _previous_mouse_position:Vector2
 
 func _ready() -> void:
@@ -52,7 +50,7 @@ func rotate_self(mouse_delta:float,delta:float)->void:
 	
 func _physics_process(delta: float) -> void:
 	cummulative_angle += angular_velocity.y * delta
-	#Counts the rotation from the in-game rigidbody
+	angular_velocity.y=10
 	
 func _mouse_enter()->void:
 	hovering=true

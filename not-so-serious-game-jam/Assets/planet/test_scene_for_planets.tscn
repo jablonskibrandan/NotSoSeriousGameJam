@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://t0t6ran53oxm"]
 
-[ext_resource type="Script" uid="uid://bnks2l6b6aj1x" path="res://Assets/planet/spinnable-object.gd" id="1_ql6qr"]
+[ext_resource type="Script" uid="uid://bnks2l6b6aj1x" path="res://Assets/planet/spinnable_body.gd" id="1_ql6qr"]
 [ext_resource type="Texture2D" uid="uid://b4cmxwd56imky" path="res://Assets/Art/skybox/test_space_skybox/panorama_image.png" id="1_sedsa"]
+[ext_resource type="Script" uid="uid://cvbbgrn1whqel" path="res://Assets/planet/game.gd" id="1_wjb1c"]
 [ext_resource type="PackedScene" uid="uid://b225p2cyjgsjj" path="res://Assets/Art/earth/LowPolyClouds.glb" id="2_75500"]
 [ext_resource type="PackedScene" uid="uid://blaqji7pcslyd" path="res://Assets/planet/planet-continents.tscn" id="3_h2oxx"]
 [ext_resource type="PackedScene" uid="uid://boifo1wodse1x" path="res://Assets/planet/planet-water.tscn" id="4_sedsa"]
 [ext_resource type="Script" uid="uid://ch5ric2wnrrn8" path="res://Assets/camera/orbit_cam.gd" id="5_h2oxx"]
 [ext_resource type="PackedScene" uid="uid://dw43uo4g753qt" path="res://Assets/Scenes/sun.tscn" id="7_y2k3q"]
+[ext_resource type="Script" uid="uid://cc50wdj5e800h" path="res://Assets/planet/planet_logic.gd" id="9_fgg7i"]
+[ext_resource type="Script" uid="uid://dedlxm5pr2tsx" path="res://Assets/ui/spin_label.gd" id="10_v4av8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_40y28"]
 panorama = ExtResource("1_sedsa")
@@ -26,10 +29,21 @@ radius = 4.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=625994666]
 environment = SubResource("Environment_g4v7s")
 
+[node name="Game" type="Node" parent="." unique_id=905904713 node_paths=PackedStringArray("PlayerPlanet")]
+script = ExtResource("1_wjb1c")
+PlayerPlanet = NodePath("../SpinnableObject")
+
+[node name="PlanetLogic" type="Node" parent="." unique_id=1961164081 node_paths=PackedStringArray("game", "spinnable", "SunAnchor")]
+script = ExtResource("9_fgg7i")
+game = NodePath("../Game")
+spinnable = NodePath("../SpinnableObject")
+SunAnchor = NodePath("../Sun")
+orbital_radius = 50.0
+
 [node name="SpinnableObject" type="RigidBody3D" parent="." unique_id=235309322]
 script = ExtResource("1_ql6qr")
-angular_dampning = 0.5
-mouse_brake_amount = 5.0
+angular_dampning = 0.0
+drag_torque = 99999999.0
 metadata/_custom_type_script = "uid://bnks2l6b6aj1x"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpinnableObject" unique_id=183524344]
@@ -59,3 +73,20 @@ omni_range = 170.18687
 
 [node name="Sun" parent="." unique_id=1936071803 instance=ExtResource("7_y2k3q")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -82)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=317381425 node_paths=PackedStringArray("game")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.0
+offset_top = 55.0
+offset_right = 80.0
+offset_bottom = 110.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Spins: 0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("10_v4av8")
+game = NodePath("../Game")
