@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cg26gs08m88f7"]
+
+[ext_resource type="Script" uid="uid://cpvopbi28nwrw" path="res://Assets/Scripts/drag_audio.gd" id="1_yeepr"]
+[ext_resource type="AudioStream" uid="uid://cf7l3qpy0l7vo" path="res://Assets/Audio/SFX/PlayerDrag/SFX_PlayerDrag.wav" id="2_dn47j"]
+
+[node name="Drag_Audio" type="AudioStreamPlayer2D" unique_id=1402338408]
+stream = ExtResource("2_dn47j")
+max_distance = 4096.0
+script = ExtResource("1_yeepr")
