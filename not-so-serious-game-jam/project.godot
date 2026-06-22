@@ -12,17 +12,22 @@ config_version=5
 
 config/name="NotSoSeriousGameJame"
 run/main_scene="uid://t0t6ran53oxm"
-config/features=PackedStringArray("4.7", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManagerObject="*uid://tpffp0y3vhg4"
+Console="*uid://ouiu5xh1cs8n"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/console/plugin.cfg")
 
 [file_customization]
 
@@ -61,3 +66,5 @@ drag_object={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
