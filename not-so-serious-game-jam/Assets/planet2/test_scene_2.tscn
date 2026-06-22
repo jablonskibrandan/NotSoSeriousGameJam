@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://dpelsu6cvjayg"]
 
 [ext_resource type="Texture2D" uid="uid://b4cmxwd56imky" path="res://Assets/Art/skybox/test_space_skybox/panorama_image.png" id="1_8d1l8"]
-[ext_resource type="Script" uid="uid://bdihnr0nps5iw" path="res://Assets/planet2/game_data.gd" id="2_d6dbw"]
-[ext_resource type="Script" uid="uid://c26jpmhwe6ike" path="res://Assets/planet2/planet_actor.gd" id="3_wj7pq"]
+[ext_resource type="Script" uid="uid://y7dft2lgfsp5" path="res://Assets/planet2/game_data.gd" id="2_d6dbw"]
+[ext_resource type="Script" uid="uid://casiab662v3ml" path="res://Assets/planet2/planet_actor.gd" id="3_wj7pq"]
 [ext_resource type="PackedScene" uid="uid://blaqji7pcslyd" path="res://Assets/planet/planet-continents.tscn" id="4_7n5h7"]
-[ext_resource type="Script" uid="uid://cr011ds2q2kle" path="res://Assets/planet2/spin_input.gd" id="4_66a7a"]
+[ext_resource type="Script" uid="uid://ddmx4sil8ft6k" path="res://Assets/planet2/spin_input.gd" id="4_66a7a"]
 [ext_resource type="PackedScene" uid="uid://boifo1wodse1x" path="res://Assets/planet/planet-water.tscn" id="5_ltvhl"]
 [ext_resource type="Script" uid="uid://ch5ric2wnrrn8" path="res://Assets/camera/orbit_cam.gd" id="7_45pbi"]
 [ext_resource type="PackedScene" uid="uid://dw43uo4g753qt" path="res://Assets/Scenes/sun.tscn" id="8_10uwm"]
+[ext_resource type="PackedScene" uid="uid://b5ahqutymo2b4" path="res://Assets/cheats/cheat_window.tscn" id="9_ltvhl"]
+[ext_resource type="Script" uid="uid://clbyk23aocoxq" path="res://Assets/cheats/debug_spin_label.gd" id="10_45pbi"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_40y28"]
 panorama = ExtResource("1_8d1l8")
@@ -24,13 +26,11 @@ environment = SubResource("Environment_d6dbw")
 
 [node name="GameData" type="Node" parent="." unique_id=397258381]
 script = ExtResource("2_d6dbw")
-metadata/_custom_type_script = "uid://bdihnr0nps5iw"
 
 [node name="PlanetActor" type="Node3D" parent="." unique_id=798040657 node_paths=PackedStringArray("game_data", "SunAnchor")]
 script = ExtResource("3_wj7pq")
 game_data = NodePath("../GameData")
 SunAnchor = NodePath("../Sun")
-metadata/_custom_type_script = "uid://c26jpmhwe6ike"
 
 [node name="LowPolyContinents" parent="PlanetActor" unique_id=1481491300 instance=ExtResource("4_7n5h7")]
 
@@ -46,7 +46,8 @@ border_width = 10.0
 script = ExtResource("4_66a7a")
 game_data = NodePath("../GameData")
 drag_sensitivity = 2.0
-metadata/_custom_type_script = "uid://cr011ds2q2kle"
+drag_force = 1.0
+momentum_falloff = 3.5
 
 [node name="OrbitCam" type="Camera3D" parent="." unique_id=1199803044 node_paths=PackedStringArray("anchor")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.653574, 0)
@@ -64,3 +65,23 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -82)
 [node name="OmniLight3D" type="OmniLight3D" parent="Sun" unique_id=16033401]
 light_energy = 200.0
 omni_range = 205.74979
+
+[node name="CheatWindow" parent="." unique_id=982572988 node_paths=PackedStringArray("game_data", "spin_input") instance=ExtResource("9_ltvhl")]
+position = Vector2i(1551, 81)
+game_data = NodePath("../GameData")
+spin_input = NodePath("../SpinInput")
+change_tool_spin_increment = 1.0
+
+[node name="Label" type="Label" parent="." unique_id=1872573843 node_paths=PackedStringArray("game_data")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -118.0
+offset_top = 30.0
+offset_right = 126.0
+offset_bottom = 85.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+text = "SHOW SPINS"
+script = ExtResource("10_45pbi")
+game_data = NodePath("../GameData")

@@ -54,4 +54,3 @@ func move_camera()->void:
 	var anchor_pos:=anchor.global_position
 	global_position=anchor_pos+angle_vector
 	look_at(anchor_pos)
-

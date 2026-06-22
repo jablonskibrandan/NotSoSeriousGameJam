@@ -1,7 +1,7 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://b4wdtqlubewir"]
 
-[ext_resource type="Script" path="res://autoloads/scene_manager.gd" id="1_sm"]
+[ext_resource type="Script" uid="uid://bg80whsosqsw8" path="res://autoloads/scene_manager.gd" id="1_sm"]
 
-[node name="SceneManager" type="Node"]
+[node name="SceneManager" type="Node" unique_id=2038108471]
 script = ExtResource("1_sm")
-start_level_path = "res://Assets/planet/test_scene_for_planets.tscn"
+start_level_path = "res://Assets/planet2/test_scene_2.tscn"

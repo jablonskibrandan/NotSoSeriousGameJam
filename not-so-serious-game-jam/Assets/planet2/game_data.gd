@@ -5,6 +5,7 @@ var total_rotation:float=0.0 #In radians
 var total_spins:int=0
 
 var _spin_remainder:float=0.0
+var _base_spin:float=0.0
 
 
 func increase_rotation(amount:float)->void:
@@ -19,3 +20,10 @@ func increase_rotation(amount:float)->void:
 		total_spins+=spins_to_add
 	
 	print(total_spins)
+
+func increase_base_spin(amount:float)->void:
+	_base_spin+=amount
+	_base_spin=max(0,_base_spin)
+	
+func _process(delta: float) -> void:
+	increase_rotation(delta*_base_spin)
