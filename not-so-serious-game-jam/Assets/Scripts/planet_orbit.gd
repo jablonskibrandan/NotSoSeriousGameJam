@@ -49,6 +49,10 @@ func _process(delta: float) -> void:
 	spin_planet(spin_degrees_this_frame)
 	update_day_progress(spin_degrees_this_frame)
 	decay_drag_boost(delta)
+	
+	if is_dragging:
+		MouseTracker(delta)
+	
 
 
 func spin_planet(spin_degrees: float) -> void:
@@ -105,3 +109,12 @@ func increase_base_spin_per_second(upgrade_boost: float) -> void:
 func increase_drag_spin_strength(drag_strength_boost: float) -> void: 
 	drag_strength += drag_strength_boost
 	print(drag_strength)
+
+#gets mouse x position as a percentage of screen x size, normalised 0-1
+#sends this to audio
+func MouseTracker(delta :float) -> void:
+	var mousePos = get_viewport().get_mouse_position()
+	var screenSize = get_viewport().size
+	var panLocation = clampf(mousePos.x,0,screenSize.x)
+
+	
