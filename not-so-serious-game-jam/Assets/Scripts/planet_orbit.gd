@@ -50,8 +50,10 @@ func _process(delta: float) -> void:
 	update_day_progress(spin_degrees_this_frame)
 	decay_drag_boost(delta)
 	
-	if is_dragging:
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		MouseTracker(delta)
+	else:
+		$"../Drag_Audio".dragStop()
 	
 
 
@@ -116,5 +118,6 @@ func MouseTracker(delta :float) -> void:
 	var mousePos = get_viewport().get_mouse_position()
 	var screenSize = get_viewport().size
 	var panLocation = clampf(mousePos.x,0,screenSize.x)
+	$"../Drag_Audio".dragUpdate(panLocation, delta)
 
 	

@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://byx65bi4ojs6" path="res://Assets/Scripts/upgrade_manager.gd" id="3_of3jj"]
 [ext_resource type="Script" uid="uid://cbqv30huct3gr" path="res://Assets/Scripts/upgrade_button_config.gd" id="4_fw1vi"]
 [ext_resource type="PackedScene" uid="uid://dw43uo4g753qt" path="res://Assets/Scenes/sun.tscn" id="5_tpq0m"]
+[ext_resource type="PackedScene" uid="uid://cg26gs08m88f7" path="res://Assets/Scenes/drag_audio.tscn" id="6_iusbg"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_80nbo"]
 
@@ -108,6 +109,13 @@ upgrade_button_configs = Array[ExtResource("4_fw1vi")]([SubResource("Resource_ry
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1327019929]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 25, 0)
+
+[node name="Drag_Audio" parent="." unique_id=1402338408 instance=ExtResource("6_iusbg")]
+panning_strength = 2.0
+fadeOutTime = 0.5
+minV = 250.0
+maxV = 1000.0
+minVol = -20.0
 
 [connection signal="pressed" from="HUD/SpeedUp5" to="UpgradeManager" method="on_upgrade_button_pressed" binds= [NodePath("../HUD/SpeedUp5")]]
 [connection signal="pressed" from="HUD/SpeedUp10" to="UpgradeManager" method="on_upgrade_button_pressed" binds= [NodePath("../HUD/SpeedUp10")]]
