@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://btx5wejkpd7tj"]
+
+[ext_resource type="PackedScene" uid="uid://c0syau6ekanwq" path="res://Assets/Art/skybox/Mew SkyBox/skybox.glb" id="1_si1ts"]
+[ext_resource type="Texture2D" uid="uid://ba7i2kuhtetqj" path="res://Assets/Art/skybox/Mew SkyBox/Space Metalic .png" id="2_o1qnt"]
+[ext_resource type="Texture2D" uid="uid://oqleyieii4ni" path="res://Assets/Art/skybox/Mew SkyBox/Space Rougnhess.png" id="3_vnqyb"]
+[ext_resource type="Texture2D" uid="uid://borp15qchwjmk" path="res://Assets/Art/skybox/Mew SkyBox/Dots.png" id="4_ierru"]
+[ext_resource type="Texture2D" uid="uid://cyuxcx815hw4g" path="res://Assets/Art/skybox/Mew SkyBox/GlitterColor.png" id="5_rlmgu"]
+
+[sub_resource type="Shader" id="Shader_si1ts"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_front, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D glitter_texture;
+uniform float glitter_metallic = 0.795;
+uniform float glitter_roughness = 0.455;
+
+uniform float shader_mix = 0.9;
+
+uniform sampler2D dot_texture;
+uniform sampler2D dot_metallic;
+uniform sampler2D dot_roughness;
+
+void fragment() {
+	vec3 tex = texture(glitter_texture, UV).rgb;
+	vec3 tex2 = texture(dot_texture, UV).rgb;
+	
+	float dot_met = texture(dot_metallic, UV).r;
+	float dot_rough = texture(dot_roughness, UV).r;
+	
+	ALBEDO = mix(tex, tex2, shader_mix);
+	METALLIC =  mix(glitter_metallic, dot_met, shader_mix);
+	ROUGHNESS =  mix(glitter_roughness, dot_rough, shader_mix) ;
+	
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mua6v"]
+render_priority = 0
+shader = SubResource("Shader_si1ts")
+shader_parameter/glitter_texture = ExtResource("5_rlmgu")
+shader_parameter/glitter_metallic = 0.795
+shader_parameter/glitter_roughness = 0.455
+shader_parameter/shader_mix = 0.9
+shader_parameter/dot_texture = ExtResource("4_ierru")
+shader_parameter/dot_metallic = ExtResource("2_o1qnt")
+shader_parameter/dot_roughness = ExtResource("3_vnqyb")
+
+[node name="skybox" unique_id=590235709 instance=ExtResource("1_si1ts")]
+
+[node name="SPACE" parent="." index="0" unique_id=1064110411]
+surface_material_override/0 = SubResource("ShaderMaterial_mua6v")
