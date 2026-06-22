@@ -30,3 +30,6 @@ run_ninja_env.bat
 *.so
 *.debug
 st[A-Za-z0-9]{6}
+
+#Shadow Told me to do this
+not-so-serious-game-jam/builds/

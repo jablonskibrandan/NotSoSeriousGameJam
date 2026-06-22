@@ -12,7 +12,7 @@ config_version=5
 
 config/name="NotSoSeriousGameJame"
 run/main_scene="res://ui/main_scene/main_scene.tscn"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [audio]
@@ -46,7 +46,8 @@ enabled=PackedStringArray("res://addons/console/plugin.cfg")
 
 folder_colors={
 "res://Assets/camera/": "orange",
-"res://Assets/planet/": "orange"
+"res://Assets/planet/": "orange",
+"res://Assets/planet2/": "orange"
 }
 
 [input]

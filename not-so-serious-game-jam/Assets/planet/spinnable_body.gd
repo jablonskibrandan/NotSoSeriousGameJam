@@ -60,7 +60,7 @@ func rotate_self(mouse_delta: float, delta: float) -> void:
 	
 func _physics_process(delta: float) -> void:
 	cummulative_angle += angular_velocity.y * delta
-	#Counts the rotation from the in-game rigidbody
+	angular_velocity.y=10
 	
 func _mouse_enter() -> void:
 	hovering = true
