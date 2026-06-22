@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://547n5cntb1n0"]
+
+[ext_resource type="FontFile" uid="uid://dmlyuwiusrqxa" path="res://assets/fonts/oswald/static/Oswald-Light.ttf" id="1_light"]
+[ext_resource type="Script" uid="uid://c8462cacuveuj" path="res://ui/shared/interact_prompt.gd" id="2_script"]
+[ext_resource type="PackedScene" uid="uid://j7hqetm5bbvr" path="res://ui/shared/action_row.tscn" id="3_row"]
+
+[node name="InteractPrompt" type="Control" unique_id=53840649]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = -280.0
+offset_right = 920.0
+offset_bottom = -52.0
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("2_script")
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=1091606692]
+layout_mode = 0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="ObjectNameLabel" type="Label" parent="VBox" unique_id=1947732703]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.4)
+theme_override_fonts/font = ExtResource("1_light")
+theme_override_font_sizes/font_size = 26
+text = "OBJECT NAME"
+uppercase = true
+
+[node name="ActionsContainer" type="VBoxContainer" parent="VBox" unique_id=878452467]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="ActionsContainer#PlaceholderRow1" parent="." unique_id=1570652340 instance=ExtResource("3_row")]
+layout_mode = 0
+
+[node name="ActionsContainer#PlaceholderRow2" parent="." unique_id=11590315 instance=ExtResource("3_row")]
+layout_mode = 0

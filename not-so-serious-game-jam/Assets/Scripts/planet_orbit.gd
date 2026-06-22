@@ -105,3 +105,8 @@ func increase_base_spin_per_second(upgrade_boost: float) -> void:
 func increase_drag_spin_strength(drag_strength_boost: float) -> void: 
 	drag_strength += drag_strength_boost
 	print(drag_strength)
+
+func add_active_spin_boost(amount: float) -> void:
+	drag_spin_boost += amount
+	drag_spin_boost = clamp(drag_spin_boost, 0.0, max_drag_spin_boost)
+

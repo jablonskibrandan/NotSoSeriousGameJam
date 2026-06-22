@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://2co1ko3rv6yl"]
+
+[ext_resource type="Script" uid="uid://cy3erp0guumwk" path="res://ui/splash_screen/splash_screen.gd" id="1_dgi5c"]
+[ext_resource type="Texture2D" uid="uid://cr1prv0suv4bj" path="res://ui/splash_screen/BMS high-01.png" id="2_xs3rx"]
+
+[node name="GodotSplashScreen" type="VBoxContainer"]
+offset_right = 461.0
+offset_bottom = 182.0
+script = ExtResource("1_dgi5c")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(0, 640)
+layout_mode = 2
+texture = ExtResource("2_xs3rx")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1

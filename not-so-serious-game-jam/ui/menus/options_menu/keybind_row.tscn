@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="FontFile" path="res://assets/fonts/oswald/static/Oswald-Light.ttf" id="1_lgt"]
+
+[node name="KeybindRow" type="HBoxContainer"]
+theme_override_constants/separation = 16
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_lgt")
+theme_override_font_sizes/font_size = 32
+text = "Action Name"
+
+[node name="KbmIcon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(180, 56)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5

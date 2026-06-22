@@ -3,7 +3,17 @@
 extends Node
 class_name GameManager
 
+enum GameState {
+	MAIN_MENU,
+	LOADING,
+	PLAYING,
+	PAUSED,
+	ENDING,
+	GAMEOVER,
+}
+
 signal currency_changed(current_currency: int)
+signal state_changed(new_state: GameState)
 
 const DAYS_IN_YEAR: int = 365
 var current_year_length: int
@@ -12,6 +22,8 @@ var current_currency: int
 var rotation_count: int 
 
 var total_rotations_seen: int = 0
+var current_state: GameState = GameState.MAIN_MENU
+var is_input_locked: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -47,7 +59,67 @@ func try_spend_currency(amount: int) -> bool:
 	
 func on_planet_rotation_completed(rotation_amount: int) -> void:
 	total_rotations_seen += rotation_amount
-
 	print("Planet rotated. Total seen by UpgradeManager: ", total_rotations_seen)
+
+func set_state(new_state: GameState) -> void:
+	if current_state == new_state:
+		return
+		
+	current_state = new_state
+	state_changed.emit(current_state)
+	
+	match current_state:
+		GameState.PLAYING:
+			_enter_playing_state()
+		GameState.PAUSED:
+			_enter_paused_state()
+		GameState.MAIN_MENU:
+			_enter_main_menu_state()
+		GameState.LOADING:
+			_enter_loading_state()
+		GameState.ENDING:
+			_enter_ending_state()
+		GameState.GAMEOVER:
+			_enter_gameover_state()
+
+func set_mouse_mode(mode: Input.MouseMode) -> void:
+	if Input.mouse_mode != mode:
+		Input.mouse_mode = mode
+
+func _enter_playing_state() -> void:
+	Engine.time_scale = 1.0
+	is_input_locked = false
+	set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _enter_paused_state() -> void:
+	Engine.time_scale = 1.0
+	is_input_locked = true
+	set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _enter_main_menu_state() -> void:
+	is_input_locked = true
+	set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _enter_loading_state() -> void:
+	is_input_locked = true
+	set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _enter_ending_state() -> void:
+	is_input_locked = true
+	set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _enter_gameover_state() -> void:
+	is_input_locked = true
+	set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func reset_game_state() -> void:
+	game_jam_days_celebrated = 0
+	current_year_length = DAYS_IN_YEAR
+	current_currency = 0
+	rotation_count = 0
+	total_rotations_seen = 0
+	is_input_locked = false
+
+
 
 	

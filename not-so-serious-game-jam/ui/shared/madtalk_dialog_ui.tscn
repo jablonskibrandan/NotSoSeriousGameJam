@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://c1ua11vgp2mv3"]
+
+[ext_resource type="Script" uid="uid://c6av3xe4m2ujl" path="res://addons/madtalk/runtime/madtalk_runtime.gd" id="1_runtime"]
+[ext_resource type="PackedScene" path="res://ui/shared/dialog_option_button.tscn" id="2_dialogbtn"]
+[ext_resource type="FontFile" uid="uid://deftysjixqsyw" path="res://assets/fonts/Underdog/Underdog-Font.ttf" id="3_font"]
+[ext_resource type="AudioStream" uid="uid://mtsoh5ip7re" path="res://assets/audio/ui/click.ogg" id="6_click_sfx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialog"]
+bg_color = Color(0, 0, 0, 0.85)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_menu"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dialog"]
+
+[node name="MadTalkDialogueUI" type="Control" unique_id=1853476915]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MadTalk" type="Node" parent="." unique_id=1692850800]
+script = ExtResource("1_runtime")
+DialogMainControl = NodePath("..")
+DialogMessageBox = NodePath("../DialogBox")
+DialogMessageLabel = NodePath("../DialogBox/MarginContainer/HBox/VBox/LabelMessage")
+DialogSpeakerLabel = NodePath("../DialogBox/MarginContainer/HBox/VBoxAvatar/LabelName")
+DialogSpeakerAvatar = NodePath("../DialogBox/MarginContainer/HBox/VBoxAvatar/Avatar")
+DialogButtonsMenu = NodePath("../MenuBox")
+DialogButtonsContainer = NodePath("../MenuBox/MenuContainer")
+DialogButtonSceneFile = ExtResource("2_dialogbtn")
+KeyPressAudioStreamPlayer = NodePath("../SFXClick")
+
+[node name="DialogBox" type="PanelContainer" parent="." unique_id=779463492]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -240.0
+offset_right = 480.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dialog")
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogBox" unique_id=600853585]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBox" type="HBoxContainer" parent="DialogBox/MarginContainer" unique_id=1317576232]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="VBoxAvatar" type="VBoxContainer" parent="DialogBox/MarginContainer/HBox" unique_id=922435634]
+layout_mode = 2
+
+[node name="Avatar" type="TextureRect" parent="DialogBox/MarginContainer/HBox/VBoxAvatar" unique_id=2034822210]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LabelName" type="Label" parent="DialogBox/MarginContainer/HBox/VBoxAvatar" unique_id=547887445]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.7)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 18
+text = "NAME"
+horizontal_alignment = 1
+clip_text = true
+uppercase = true
+
+[node name="VBox" type="VBoxContainer" parent="DialogBox/MarginContainer/HBox" unique_id=1890279837]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelMessage" type="RichTextLabel" parent="DialogBox/MarginContainer/HBox/VBox" unique_id=2037036953]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("3_font")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Dialogue message text goes here..."
+fit_content = true
+scroll_active = false
+
+[node name="MenuBox" type="PanelContainer" parent="." unique_id=1626192415]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -450.0
+offset_right = 480.0
+offset_bottom = -250.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_menu")
+
+[node name="MenuContainer" type="VBoxContainer" parent="MenuBox" unique_id=137885527]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="SFXClick" type="AudioStreamPlayer" parent="." unique_id=2102290788]
+stream = ExtResource("6_click_sfx")
+volume_db = -6.0
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=5212226]
+libraries/ = SubResource("AnimationLibrary_dialog")

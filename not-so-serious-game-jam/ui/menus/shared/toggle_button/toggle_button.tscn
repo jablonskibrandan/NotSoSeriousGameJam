@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://ui/menus/shared/toggle_button/toggle_button.gd" id="1_scr"]
+[ext_resource type="FontFile" path="res://assets/fonts/oswald/static/Oswald-SemiBold.ttf" id="2_fnt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_empty"]
+
+[node name="ToggleButton" type="Button"]
+custom_minimum_size = Vector2(80, 0)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_fnt")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_empty")
+text = "OFF"
+flat = true
+script = ExtResource("1_scr")

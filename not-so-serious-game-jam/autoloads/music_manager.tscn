@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dfp8k7v4x3n1r"]
+
+[ext_resource type="Script" path="res://autoloads/music_manager.gd" id="1_script"]
+[ext_resource type="AudioStream" uid="uid://click_uid" path="res://Assets/audio/ui/click.ogg" id="2_click"]
+[ext_resource type="AudioStream" uid="uid://hover_uid" path="res://Assets/audio/ui/hover.ogg" id="3_hover"]
+
+[node name="MusicManager" type="Node"]
+script = ExtResource("1_script")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Click" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("2_click")
+bus = &"SFX"
+
+[node name="Hover" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_hover")
+bus = &"SFX"

@@ -11,6 +11,7 @@ class_name OrbitCam
 @export var rotate_sensitivity:float=0.01
 @export var zoom_sensitivity:float=1
 
+
 var angle:Vector2
 var distance:float=2.0
 var dragging:bool=false
@@ -34,6 +35,8 @@ func _process(delta: float) -> void:
 		var _mouse_delta:Vector2=get_viewport().get_mouse_position()-_initial_mouse_position
 		angle=_inital_angle-_mouse_delta*rotate_sensitivity
 		angle.y=clamp(angle.y,-PI/2+0.01,PI/2-0.01)
+
+
 		
 	var _zoom_delta:float=int(Input.is_action_just_pressed("zoom_in"))-int(Input.is_action_just_pressed("zoom_out"))
 	distance+=_zoom_delta*zoom_sensitivity
@@ -51,5 +54,4 @@ func move_camera()->void:
 	var anchor_pos:=anchor.global_position
 	global_position=anchor_pos+angle_vector
 	look_at(anchor_pos)
-	
-	
+

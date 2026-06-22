@@ -1,0 +1,406 @@
+[gd_scene format=3 uid="uid://bdvnhllcpq7hi"]
+
+[ext_resource type="Script" uid="uid://c24u5n1ryqv8f" path="res://ui/menus/options_menu/options_menu.gd" id="1_scr"]
+[ext_resource type="AudioStream" uid="uid://1um26luxuirs" path="res://assets/audio/ui/hover.ogg" id="2_hov"]
+[ext_resource type="AudioStream" uid="uid://mtsoh5ip7re" path="res://assets/audio/ui/click.ogg" id="3_clk"]
+[ext_resource type="PackedScene" path="res://ui/menus/shared/multi_select_row/multi_select_row.tscn" id="5_msr"]
+[ext_resource type="PackedScene" path="res://ui/menus/shared/toggle_button/toggle_button.tscn" id="6_tog"]
+[ext_resource type="FontFile" uid="uid://dmlyuwiusrqxa" path="res://assets/fonts/oswald/static/Oswald-Light.ttf" id="7_lgt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_empty"]
+
+[sub_resource type="StyleBoxFlat" id="SliderBg"]
+bg_color = Color(1, 1, 1, 0.15)
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="SliderFill"]
+bg_color = Color(1, 1, 1, 1)
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+
+[node name="OptionsMenu" type="Control" unique_id=1183972470]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_scr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=527918188]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TitleLabel" type="Label" parent="." unique_id=952550167]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 45.0
+offset_top = 49.999996
+offset_right = 306.0
+offset_bottom = 170.0
+scale = Vector2(0.7421582, 0.7421582)
+theme_override_fonts/font = ExtResource("7_lgt")
+theme_override_font_sizes/font_size = 80
+text = "OPTIONS"
+vertical_alignment = 1
+
+[node name="RootHBox" type="HBoxContainer" parent="." unique_id=1042596076]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sidebar" type="MarginContainer" parent="RootHBox" unique_id=1072057498]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_bottom = 80
+
+[node name="SidebarVBox" type="VBoxContainer" parent="RootHBox/Sidebar" unique_id=884940059]
+layout_mode = 2
+
+[node name="GeneralTabBtn" type="Button" parent="RootHBox/Sidebar/SidebarVBox" unique_id=901477613]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.38)
+layout_mode = 2
+focus_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_lgt")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_empty")
+text = "GENERAL"
+flat = true
+alignment = 0
+
+[node name="ControlsTabBtn" type="Button" parent="RootHBox/Sidebar/SidebarVBox" unique_id=1602012578]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.38)
+layout_mode = 2
+focus_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_lgt")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_empty")
+text = "CONTROLS"
+flat = true
+alignment = 0
+
+[node name="SidebarStretch" type="Control" parent="RootHBox/Sidebar/SidebarVBox" unique_id=78027513]
+layout_mode = 2
+size_flags_vertical = 3
+
+
+[node name="BackButton" type="Button" parent="RootHBox/Sidebar/SidebarVBox" unique_id=593625552]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.38)
+layout_mode = 2
+focus_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_lgt")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_empty")
+text = "BACK"
+flat = true
+alignment = 0
+
+[node name="VSeparator" type="VSeparator" parent="RootHBox" unique_id=1979660977]
+modulate = Color(1, 1, 1, 0.1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="ContentArea" type="MarginContainer" parent="RootHBox" unique_id=1275900099]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="TabPanels" type="Control" parent="RootHBox/ContentArea" unique_id=1641103150]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GeneralPanel" type="VBoxContainer" parent="RootHBox/ContentArea/TabPanels" unique_id=449806178]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 28
+
+[node name="DisplayHeader" type="Label" parent="RootHBox/ContentArea/TabPanels/GeneralPanel" unique_id=1375120945]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.45)
+theme_override_fonts/font = ExtResource("7_lgt")
+theme_override_font_sizes/font_size = 32
+text = "DISPLAY"
+
+[node name="ResolutionRow" type="HBoxContainer" parent="RootHBox/ContentArea/TabPanels/GeneralPanel" unique_id=1217126296]
+layout_mode = 2
+
+[node name="RowLabel" type="Label" parent="RootHBox/ContentArea/TabPanels/GeneralPanel/ResolutionRow" unique_id=900182701]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_lgt")
+theme_override_font_sizes/font_size = 44
+text = "Resolution"
+
+[node name="ResolutionCycle" parent="RootHBox/ContentArea/TabPanels/GeneralPanel/ResolutionRow" unique_id=1879676507 instance=ExtResource("5_msr")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="WindowModeRow" type="HBoxContainer" parent="RootHBox/ContentArea/TabPanels/GeneralPanel" unique_id=977039109]
+layout_mode = 2
+
+[node name="RowLabel" type="Label" parent="RootHBox/ContentArea/TabPanels/GeneralPanel/WindowModeRow" unique_id=1433966127]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_lgt")
+theme_override_font_sizes/font_size = 44
+text = "Window Mode"
+
+[node name="WindowModeCycle" parent="RootHBox/ContentArea/TabPanels/GeneralPanel/WindowModeRow" unique_id=1683978478 instance=ExtResource("5_msr")]
+unique_name_in_owner = true
+layout_mode = 2
+options = Array[String](["FULLSCREEN", "WINDOWED", "MAXIMIZED"])
+
+[node name="VsyncRow" type="HBoxContainer" parent="RootHBox/ContentArea/TabPanels/GeneralPanel" unique_id=1746489299]
+layout_mode = 2
+
+[node name="RowLabel" type="Label" parent="RootHBox/ContentArea/TabPanels/GeneralPanel/VsyncRow" unique_id=2107276110]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_lgt")
+theme_override_font_sizes/font_size = 44
+text = "Vsync"
+
+[node name="VsyncToggle" parent="RootHBox/ContentArea/TabPanels/GeneralPanel/VsyncRow" unique_id=1469988791 instance=ExtResource("6_tog")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_lgt")
+
+[node name="FpsRow" type="HBoxContainer" parent="RootHBox/ContentArea/TabPanels/GeneralPanel" unique_id=1167427531]
+layout_mode = 2
+
+[node name="RowLabel" type="Label" parent="RootHBox/ContentArea/TabPanels/GeneralPanel/FpsRow" unique_id=1113635408]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_lgt")
+theme_override_font_sizes/font_size = 44
+text = "FPS Limit"
+
+[node name="FpsCycle" parent="RootHBox/ContentArea/TabPanels/GeneralPanel/FpsRow" unique_id=37656545 instance=ExtResource("5_msr")]
+unique_name_in_owner = true
+layout_mode = 2
+options = Array[String](["UNCAPPED", "30", "60", "120"])
+
+[node name="AudioHeader" type="Label" parent="RootHBox/ContentArea/TabPanels/GeneralPanel" unique_id=1299609035]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.45)
+theme_override_fonts/font = ExtResource("7_lgt")
+theme_override_font_sizes/font_size = 32
+text = "AUDIO"
+
+[node name="MasterRow" type="HBoxContainer" parent="RootHBox/ContentArea/TabPanels/GeneralPanel" unique_id=1568391140]
+layout_mode = 2
+
+[node name="RowLabel" type="Label" parent="RootHBox/ContentArea/TabPanels/GeneralPanel/MasterRow" unique_id=1863308491]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_lgt")
+theme_override_font_sizes/font_size = 44
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="RootHBox/ContentArea/TabPanels/GeneralPanel/MasterRow" unique_id=1448310935]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("SliderBg")
+theme_override_styles/grabber_area = SubResource("SliderFill")
+theme_override_styles/grabber_area_highlight = SubResource("SliderFill")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SfxRow" type="HBoxContainer" parent="RootHBox/ContentArea/TabPanels/GeneralPanel" unique_id=1995925042]
+layout_mode = 2
+
+[node name="RowLabel" type="Label" parent="RootHBox/ContentArea/TabPanels/GeneralPanel/SfxRow" unique_id=813006488]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_lgt")
+theme_override_font_sizes/font_size = 44
+text = "SFX Volume"
+
+[node name="SfxSlider" type="HSlider" parent="RootHBox/ContentArea/TabPanels/GeneralPanel/SfxRow" unique_id=657887667]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("SliderBg")
+theme_override_styles/grabber_area = SubResource("SliderFill")
+theme_override_styles/grabber_area_highlight = SubResource("SliderFill")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicRow" type="HBoxContainer" parent="RootHBox/ContentArea/TabPanels/GeneralPanel" unique_id=829422564]
+layout_mode = 2
+
+[node name="RowLabel" type="Label" parent="RootHBox/ContentArea/TabPanels/GeneralPanel/MusicRow" unique_id=1479263908]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_lgt")
+theme_override_font_sizes/font_size = 44
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="RootHBox/ContentArea/TabPanels/GeneralPanel/MusicRow" unique_id=1602297437]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("SliderBg")
+theme_override_styles/grabber_area = SubResource("SliderFill")
+theme_override_styles/grabber_area_highlight = SubResource("SliderFill")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="ControlsPanel" type="VBoxContainer" parent="RootHBox/ContentArea/TabPanels" unique_id=1966732316]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="MouseSensitivityRow" type="HBoxContainer" parent="RootHBox/ContentArea/TabPanels/ControlsPanel" unique_id=136566742]
+layout_mode = 2
+
+[node name="RowLabel" type="Label" parent="RootHBox/ContentArea/TabPanels/ControlsPanel/MouseSensitivityRow" unique_id=1620847047]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_lgt")
+theme_override_font_sizes/font_size = 44
+text = "Mouse Sensitivity"
+
+[node name="MouseSensitivitySlider" type="HSlider" parent="RootHBox/ContentArea/TabPanels/ControlsPanel/MouseSensitivityRow" unique_id=245331261]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("SliderBg")
+theme_override_styles/grabber_area = SubResource("SliderFill")
+theme_override_styles/grabber_area_highlight = SubResource("SliderFill")
+max_value = 2.0
+step = 0.05
+value = 1.0
+
+[node name="MouseSensitivityValueLabel" type="Label" parent="RootHBox/ContentArea/TabPanels/ControlsPanel/MouseSensitivityRow" unique_id=723489740]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_lgt")
+theme_override_font_sizes/font_size = 44
+text = "1.00"
+horizontal_alignment = 2
+
+
+
+[node name="HSep" type="HSeparator" parent="RootHBox/ContentArea/TabPanels/ControlsPanel" unique_id=1746152454]
+modulate = Color(1, 1, 1, 0.12)
+layout_mode = 2
+
+[node name="BindsHeader" type="HBoxContainer" parent="RootHBox/ContentArea/TabPanels/ControlsPanel" unique_id=2098335544]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ActionLabel" type="Label" parent="RootHBox/ContentArea/TabPanels/ControlsPanel/BindsHeader" unique_id=140330151]
+modulate = Color(1, 1, 1, 0.45)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_lgt")
+theme_override_font_sizes/font_size = 32
+text = "ACTION"
+
+[node name="KbmLabel" type="Label" parent="RootHBox/ContentArea/TabPanels/ControlsPanel/BindsHeader" unique_id=1149667019]
+modulate = Color(1, 1, 1, 0.45)
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_lgt")
+theme_override_font_sizes/font_size = 32
+text = "KEYBOARD"
+horizontal_alignment = 1
+
+
+
+[node name="BindsScrollContainer" type="ScrollContainer" parent="RootHBox/ContentArea/TabPanels/ControlsPanel" unique_id=1299101070]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BindsContainer" type="VBoxContainer" parent="RootHBox/ContentArea/TabPanels/ControlsPanel/BindsScrollContainer" unique_id=1439250215]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="SFX" type="Node" parent="." unique_id=1618555663]
+process_mode = 3
+
+[node name="Hover" type="AudioStreamPlayer" parent="SFX" unique_id=1637250801]
+stream = ExtResource("2_hov")
+bus = &"SFX"
+
+[node name="Click" type="AudioStreamPlayer" parent="SFX" unique_id=1803946132]
+stream = ExtResource("3_clk")
+bus = &"SFX"
+
+[connection signal="pressed" from="RootHBox/Sidebar/SidebarVBox/GeneralTabBtn" to="." method="_on_general_tab_pressed"]
+[connection signal="pressed" from="RootHBox/Sidebar/SidebarVBox/ControlsTabBtn" to="." method="_on_controls_tab_pressed"]
+[connection signal="pressed" from="RootHBox/Sidebar/SidebarVBox/BackButton" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="RootHBox/ContentArea/TabPanels/GeneralPanel/ResolutionRow/ResolutionCycle" to="." method="_on_resolution_selected"]
+[connection signal="value_changed" from="RootHBox/ContentArea/TabPanels/GeneralPanel/WindowModeRow/WindowModeCycle" to="." method="_on_window_mode_selected"]
+[connection signal="toggled_value" from="RootHBox/ContentArea/TabPanels/GeneralPanel/VsyncRow/VsyncToggle" to="." method="_on_vsync_toggled"]
+[connection signal="value_changed" from="RootHBox/ContentArea/TabPanels/GeneralPanel/FpsRow/FpsCycle" to="." method="_on_fps_selected"]
+[connection signal="value_changed" from="RootHBox/ContentArea/TabPanels/GeneralPanel/MasterRow/MasterSlider" to="." method="_on_master_changed"]
+[connection signal="value_changed" from="RootHBox/ContentArea/TabPanels/GeneralPanel/SfxRow/SfxSlider" to="." method="_on_sfx_changed"]
+[connection signal="value_changed" from="RootHBox/ContentArea/TabPanels/GeneralPanel/MusicRow/MusicSlider" to="." method="_on_music_changed"]
+[connection signal="value_changed" from="RootHBox/ContentArea/TabPanels/ControlsPanel/MouseSensitivityRow/MouseSensitivitySlider" to="." method="_on_mouse_sensitivity_changed"]
+

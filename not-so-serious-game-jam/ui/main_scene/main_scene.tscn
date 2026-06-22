@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://ck3opcvlo454r"]
+
+[ext_resource type="Script" uid="uid://cq38fejs4wgow" path="res://ui/main_scene/main_scene.gd" id="1_ms"]
+[ext_resource type="PackedScene" uid="uid://mainmenuui12" path="res://ui/main_menu/main_menu.tscn" id="2_menu"]
+[ext_resource type="PackedScene" uid="uid://bdvnhllcpq7hi" path="res://ui/menus/options_menu/options_menu.tscn" id="3_opt"]
+[ext_resource type="PackedScene" uid="uid://bqgcfmtmqx8s0" path="res://ui/menus/credits_menu/credits_menu.tscn" id="4_crd"]
+[ext_resource type="PackedScene" path="res://ui/menus/pause_menu/pause_menu.tscn" id="5_pau"]
+[ext_resource type="PackedScene" uid="uid://doliilysdvdif" path="res://ui/splash_screen/splash_screen_manager.tscn" id="6_splash"]
+
+[node name="MainScene" type="Node" unique_id=618171771]
+script = ExtResource("1_ms")
+
+[node name="LevelContainer" type="Node3D" parent="." unique_id=838099976]
+
+[node name="SplashScreenLayer" type="CanvasLayer" parent="." unique_id=1372191508]
+layer = 10
+
+[node name="SplashScreenManager" parent="SplashScreenLayer" unique_id=1972332695 instance=ExtResource("6_splash")]
+
+[node name="MainMenuLayer" type="CanvasLayer" parent="." unique_id=922081813]
+layer = 5
+
+[node name="MainMenu" parent="MainMenuLayer" unique_id=333247394 instance=ExtResource("2_menu")]
+visible = false
+
+[node name="OptionsLayer" type="CanvasLayer" parent="." unique_id=1458921375]
+process_mode = 3
+layer = 6
+
+[node name="OptionsMenu" parent="OptionsLayer" unique_id=812075724 instance=ExtResource("3_opt")]
+visible = false
+
+[node name="CreditsLayer" type="CanvasLayer" parent="." unique_id=582235504]
+process_mode = 3
+layer = 7
+
+[node name="CreditsMenu" parent="CreditsLayer" unique_id=196423678 instance=ExtResource("4_crd")]
+visible = false
+
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=1820164705]
+process_mode = 3
+layer = 9
+
+[node name="PauseMenu" parent="PauseLayer" unique_id=1819836711 instance=ExtResource("5_pau")]
+visible = false
+
+[node name="ConfirmLayer" type="CanvasLayer" parent="." unique_id=1835792302]
+process_mode = 3
+layer = 99
+
+[node name="FadeLayer" type="CanvasLayer" parent="." unique_id=2021568664]
+layer = 100
+
+[node name="FadeRect" type="ColorRect" parent="FadeLayer" unique_id=869337691]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

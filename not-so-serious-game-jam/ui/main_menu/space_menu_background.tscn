@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://spacebgmenu"]
+
+[ext_resource type="Script" uid="uid://c7ivks0noos86" path="res://ui/main_menu/space_menu_background.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://b4cmxwd56imky" path="res://Assets/Art/skybox/test_space_skybox/panorama_image.png" id="2_sky"]
+[ext_resource type="PackedScene" uid="uid://blaqji7pcslyd" path="res://Assets/planet/planet-continents.tscn" id="3_cont"]
+[ext_resource type="PackedScene" uid="uid://boifo1wodse1x" path="res://Assets/planet/planet-water.tscn" id="4_water"]
+[ext_resource type="PackedScene" uid="uid://b225p2cyjgsjj" path="res://Assets/Art/earth/LowPolyClouds.glb" id="5_clouds"]
+[ext_resource type="PackedScene" uid="uid://dw43uo4g753qt" path="res://Assets/Scenes/sun.tscn" id="6_sun"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_space"]
+panorama = ExtResource("2_sky")
+
+[sub_resource type="Sky" id="Sky_space"]
+sky_material = SubResource("PanoramaSkyMaterial_space")
+
+[sub_resource type="Environment" id="Environment_space"]
+background_mode = 2
+sky = SubResource("Sky_space")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_space"]
+radius = 4.0
+
+[node name="SpaceMenuBackground" type="Node3D" unique_id=566284478]
+script = ExtResource("1_script")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1539614950]
+environment = SubResource("Environment_space")
+
+[node name="SpinnableObject" type="RigidBody3D" parent="." unique_id=815469913]
+angular_damp = 0.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpinnableObject" unique_id=1419125900]
+shape = SubResource("SphereShape3D_space")
+
+[node name="LowPolyContinents" parent="SpinnableObject" unique_id=707937576 instance=ExtResource("3_cont")]
+
+[node name="LowPolyOcean" parent="SpinnableObject" unique_id=191285452 instance=ExtResource("4_water")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1857891022]
+transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, 7.5, 5, 7.5)
+
+[node name="LowPolyClouds" parent="." unique_id=412822455 instance=ExtResource("5_clouds")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=777620466]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30.8623)
+light_energy = 16.0
+omni_range = 170.0
+
+[node name="Sun" parent="." unique_id=254559325 instance=ExtResource("6_sun")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -82)

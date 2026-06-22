@@ -1,0 +1,220 @@
+[gd_scene format=3 uid="uid://mainmenuui12"]
+
+[ext_resource type="Script" uid="uid://8hxjj8fq6npb" path="res://ui/main_menu/main_menu.gd" id="1_mms"]
+[ext_resource type="PackedScene" uid="uid://spacebgmenu" path="res://ui/main_menu/space_menu_background.tscn" id="2_mmw"]
+[ext_resource type="AudioStream" uid="uid://mtsoh5ip7re" path="res://Assets/audio/ui/click.ogg" id="3_click"]
+[ext_resource type="PackedScene" uid="uid://bgvcafmfin6ub" path="res://ui/shared/itch_link_button.tscn" id="3_itch"]
+[ext_resource type="FontFile" uid="uid://dqr7m124aie1u" path="res://Assets/fonts/oswald/static/Oswald-Bold.ttf" id="3_joh67"]
+[ext_resource type="Texture2D" uid="uid://cy4r01bpef8yy" path="res://Assets/icons/icon_assets/snowflake_highres.svg" id="4_6mijq"]
+[ext_resource type="AudioStream" uid="uid://1um26luxuirs" path="res://Assets/audio/ui/hover.ogg" id="4_hover"]
+[ext_resource type="FontFile" uid="uid://dmlyuwiusrqxa" path="res://Assets/fonts/oswald/static/Oswald-Light.ttf" id="6_font"]
+[ext_resource type="Texture2D" uid="uid://rk1ub8wq6kmf" path="res://Assets/icons/itch/youtube-youtube-svgrepo-com.svg" id="7_w2r0d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("3_joh67")
+font_size = 56
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_empty"]
+
+[node name="MainMenu" type="Control" unique_id=1773434011]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mms")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=642092587]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1762220921]
+own_world_3d = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="MenuWorld3D" parent="SubViewportContainer/SubViewport" unique_id=1783722800 instance=ExtResource("2_mmw")]
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=36178309]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.35)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1815548544]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 110
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 110
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=209620424]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="MenuSpacer" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1065255776]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1194949690]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 81.0
+offset_top = 278.0
+offset_right = 419.0
+offset_bottom = 362.0
+theme_override_fonts/font = ExtResource("3_joh67")
+text = "Earth Spinner"
+label_settings = SubResource("LabelSettings_title")
+uppercase = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TitleLabel" unique_id=1297081182]
+visible = false
+position = Vector2(417, 44)
+texture = ExtResource("4_6mijq")
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="." unique_id=674127156]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 110.0
+offset_top = 366.0
+offset_right = 387.0
+offset_bottom = 562.0
+theme_override_constants/separation = 8
+
+[node name="StartButton" type="Button" parent="ButtonsContainer" unique_id=678197908 groups=["menu_buttons"]]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.38)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_empty")
+text = "START"
+flat = true
+
+[node name="OptionsButton" type="Button" parent="ButtonsContainer" unique_id=1007024723 groups=["menu_buttons"]]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.38)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_empty")
+text = "OPTIONS"
+flat = true
+
+[node name="CreditsButton" type="Button" parent="ButtonsContainer" unique_id=436697322 groups=["menu_buttons"]]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.38)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_empty")
+text = "CREDITS"
+flat = true
+
+[node name="ExitButton" type="Button" parent="ButtonsContainer" unique_id=1062855874 groups=["menu_buttons"]]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.38)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_empty")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_empty")
+text = "EXIT"
+flat = true
+
+[node name="ItchLinkButton" parent="." unique_id=1229236345 instance=ExtResource("3_itch")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -174.0
+offset_top = -144.0
+offset_right = -110.0
+offset_bottom = -80.0
+grow_horizontal = 0
+grow_vertical = 0
+url = "https://palin-drome.itch.io/static-winter"
+
+[node name="RickrollLinkButton" parent="." unique_id=2081192931 instance=ExtResource("3_itch")]
+texture_filter = 4
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -271.0
+offset_top = -144.0
+offset_right = -207.0
+offset_bottom = -80.0
+grow_horizontal = 0
+grow_vertical = 0
+url = "https://www.youtube.com/watch?v=xvFZjo5PgG0"
+action_name = &"lean_right"
+icon_texture = ExtResource("7_w2r0d")
+
+[node name="SFX" type="Node" parent="." unique_id=483698079]
+
+[node name="Hover" type="AudioStreamPlayer" parent="SFX" unique_id=239813805]
+stream = ExtResource("4_hover")
+bus = &"SFX"
+
+[node name="Click" type="AudioStreamPlayer" parent="SFX" unique_id=1099010492]
+stream = ExtResource("3_click")
+bus = &"SFX"
+
+[connection signal="pressed" from="ButtonsContainer/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonsContainer/OptionsButton" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="ButtonsContainer/CreditsButton" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="ButtonsContainer/ExitButton" to="." method="_on_exit_pressed"]
+[connection signal="clicked" from="ItchLinkButton" to="SFX/Click" method="play"]
+[connection signal="hovered" from="ItchLinkButton" to="SFX/Hover" method="play"]
+[connection signal="clicked" from="RickrollLinkButton" to="SFX/Click" method="play"]
+[connection signal="hovered" from="RickrollLinkButton" to="SFX/Hover" method="play"]

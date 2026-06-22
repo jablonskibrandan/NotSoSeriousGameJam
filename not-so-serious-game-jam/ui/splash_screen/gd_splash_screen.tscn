@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://kqvcy0xayjx8"]
+
+[ext_resource type="Script" uid="uid://cy3erp0guumwk" path="res://ui/splash_screen/splash_screen.gd" id="1_41vup"]
+[ext_resource type="Texture2D" uid="uid://j0warvx63cyo" path="res://ui/splash_screen/logo_large_monochrome_dark.png" id="2_61ucm"]
+
+[node name="ControllerSplashScreen" type="VBoxContainer"]
+offset_right = 461.0
+offset_bottom = 182.0
+script = ExtResource("1_41vup")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(0, 640)
+layout_mode = 2
+texture = ExtResource("2_61ucm")
+expand_mode = 2
+stretch_mode = 5
