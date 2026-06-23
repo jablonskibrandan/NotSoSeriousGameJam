@@ -1,5 +1,3 @@
-# This is an autoloaded class. 
-
 extends Node
 class_name GameManager
 
@@ -25,13 +23,11 @@ var total_rotations_seen: int = 0
 var current_state: GameState = GameState.MAIN_MENU
 var is_input_locked: bool = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	game_jam_days_celebrated = 0
 	current_year_length = 365
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if (current_year_length <= 0): 
 		game_jam_days_celebrated += 1
@@ -40,14 +36,16 @@ func _process(delta: float) -> void:
 	if (current_currency <= 0):
 		current_currency = 0
 	
-func shorten_year_length(days: int ): 
+func shorten_year_length(days: int) -> void: 
 	current_year_length -= days
 	
 func celebrate_another_game_jam_day() -> void:
 	game_jam_days_celebrated += 1
 
-func add_to_current_currency(money_to_add: int):
+func add_to_current_currency(money_to_add: int) -> void:
 	current_currency += money_to_add
+
+
 
 func try_spend_currency(amount: int) -> bool:
 	if current_currency < amount:
@@ -59,7 +57,6 @@ func try_spend_currency(amount: int) -> bool:
 	
 func on_planet_rotation_completed(rotation_amount: int) -> void:
 	total_rotations_seen += rotation_amount
-	print("Planet rotated. Total seen by UpgradeManager: ", total_rotations_seen)
 
 func set_state(new_state: GameState) -> void:
 	if current_state == new_state:

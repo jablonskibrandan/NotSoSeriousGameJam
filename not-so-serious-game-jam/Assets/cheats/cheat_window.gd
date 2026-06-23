@@ -19,7 +19,7 @@ extends Window
 func _ready() -> void:
 	MomentumModeCheckButton.toggled.connect(func(to:bool):
 		if spin_input:
-			spin_input._enabled_momentum_mode=to
+			spin_input._is_momentum_enabled=to
 	)
 	
 	ChangeBaseSpinPlus.pressed.connect(func():
@@ -33,14 +33,14 @@ func _ready() -> void:
 	
 	ChangeManualSpinPlus.pressed.connect(func():
 		if spin_input:
-			if spin_input._enabled_momentum_mode:
+			if spin_input._is_momentum_enabled:
 				spin_input.drag_force+=change_tool_spin_increment
 			else:
 				spin_input.drag_sensitivity+=change_tool_spin_increment
 	)
 	ChangeManualSpinMinus.pressed.connect(func():
 		if spin_input:
-			if spin_input._enabled_momentum_mode:
+			if spin_input._is_momentum_enabled:
 				spin_input.drag_force-=change_tool_spin_increment
 			else:
 				spin_input.drag_sensitivity-=change_tool_spin_increment
@@ -55,7 +55,7 @@ func _ready() -> void:
 		)
 	ShowDetectBoxCheckButton.toggled.connect(func(to:bool):
 		if spin_input:
-			spin_input.show_virtual_radius=to)
+			spin_input.should_show_virtual_radius=to)
 			
 	for key in OrbitCam.MODE.keys():
 		CameraModeOptionButton.add_item(key)
@@ -72,7 +72,7 @@ func _process(delta: float) -> void:
 		ChangeBaseSpinLabel.text="%f rps"%[game_data._base_spin/(2*PI)]
 	
 	if spin_input:
-			if spin_input._enabled_momentum_mode:
+			if spin_input._is_momentum_enabled:
 				ChangeManualSpinLabel.text="Force: %.01f"%[spin_input.drag_force]
 			else:
 				ChangeManualSpinLabel.text="Sensitivity: %.01f"%[spin_input.drag_sensitivity]

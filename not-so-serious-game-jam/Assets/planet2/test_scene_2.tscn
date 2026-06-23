@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://dw43uo4g753qt" path="res://Assets/Scenes/sun.tscn" id="8_10uwm"]
 [ext_resource type="PackedScene" uid="uid://b5ahqutymo2b4" path="res://Assets/cheats/cheat_window.tscn" id="9_ltvhl"]
 [ext_resource type="Script" uid="uid://clbyk23aocoxq" path="res://Assets/cheats/debug_spin_label.gd" id="10_45pbi"]
+[ext_resource type="Script" uid="uid://byx65bi4ojs6" path="res://Assets/Scripts/upgrade_manager.gd" id="11_upg"]
+[ext_resource type="PackedScene" uid="uid://chudmainscene2" path="res://ui/hud/simple_hud.tscn" id="12_hud"]
+[ext_resource type="Script" uid="uid://cbqv30huct3gr" path="res://Assets/Scripts/upgrade_button_config.gd" id="13_cfg"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_40y28"]
 panorama = ExtResource("1_8d1l8")
@@ -20,6 +23,47 @@ sky_material = SubResource("PanoramaSkyMaterial_40y28")
 [sub_resource type="Environment" id="Environment_d6dbw"]
 background_mode = 2
 sky = SubResource("Sky_l7e31")
+
+[sub_resource type="Resource" id="Resource_kite"]
+script = ExtResource("13_cfg")
+display_name = "Kites"
+description = "Solar-wind powered kites speed up rotation!"
+unlock_type = 0
+required_amount = 1
+currency_cost = 120
+effect_type = 0
+spin_increase_amount = 5.0
+
+[sub_resource type="Resource" id="Resource_windmill"]
+script = ExtResource("13_cfg")
+display_name = "Windmills"
+description = "Harness atmospheric friction to auto-spin!"
+unlock_type = 0
+required_amount = 10
+currency_cost = 500
+effect_type = 0
+spin_increase_amount = 12.0
+
+[sub_resource type="Resource" id="Resource_rocket"]
+script = ExtResource("13_cfg")
+display_name = "Rockets"
+description = "Boosts your drag momentum!"
+unlock_type = 0
+required_amount = 50
+currency_cost = 1200
+effect_type = 1
+drag_strength_bonus = 1.5
+
+[sub_resource type="Resource" id="Resource_boost"]
+script = ExtResource("13_cfg")
+display_name = "Turbo Spin Boost"
+description = "Instantly adds speed, cooling down over 15s"
+unlock_type = 0
+required_amount = 100
+currency_cost = 2500
+effect_type = 2
+active_spin_boost_amount = 8.0
+cooldown_seconds = 15.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" unique_id=371894104]
 environment = SubResource("Environment_d6dbw")
@@ -96,3 +140,11 @@ theme_override_font_sizes/font_size = 25
 text = "SHOW SPINS"
 script = ExtResource("10_45pbi")
 game_data = NodePath("../GameData")
+
+[node name="UpgradeManager" type="Node" parent="." unique_id=1484635140 node_paths=PackedStringArray("game_data", "spin_input")]
+script = ExtResource("11_upg")
+game_data = NodePath("../GameData")
+spin_input = NodePath("../SpinInput")
+upgrade_button_configs = Array[ExtResource("13_cfg")]([SubResource("Resource_kite"), SubResource("Resource_windmill"), SubResource("Resource_rocket"), SubResource("Resource_boost")])
+
+[node name="SimpleHUD" parent="." unique_id=182939103 instance=ExtResource("12_hud")]

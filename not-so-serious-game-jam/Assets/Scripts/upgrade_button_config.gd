@@ -1,4 +1,3 @@
-# Class for each button resource. Set these on UpgradeManager to wire up the buttons to the gameplay, essentially. 
 extends Resource
 class_name UpgradeButtonConfig
 
@@ -36,6 +35,6 @@ enum EffectType {
 @export var active_spin_boost_amount: float = 0.0
 @export var cooldown_seconds: float = 0.0
 
-var unlocked: bool = false
+var is_unlocked: bool = false
 var purchased_count: int = 0
 var cooldown_remaining: float = 0.0

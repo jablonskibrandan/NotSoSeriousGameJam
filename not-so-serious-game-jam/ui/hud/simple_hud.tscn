@@ -1,0 +1,71 @@
+[gd_scene load_steps=2 format=3 uid="uid://chudmainscene2"]
+
+[ext_resource type="Script" path="res://ui/hud/simple_hud.gd" id="1_script"]
+
+[node name="SimpleHUD" type="CanvasLayer"]
+script = ExtResource("1_script")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="StatsLabel" type="Label" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 400.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 20
+text = "Rotational Speed: 0.00 rev/s
+Money: $0
+Days until Christmas: 365
+Christmases Celebrated: 0"
+
+[node name="ShopPanel" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(400, 600)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -432.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = -32.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/ShopPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ShopPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="UI/ShopPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "SHOP UPGRADES"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/ShopPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="UpgradesContainer" type="VBoxContainer" parent="UI/ShopPanel/MarginContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 12

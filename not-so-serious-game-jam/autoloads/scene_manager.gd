@@ -1,6 +1,6 @@
 extends Node
 
-@export var start_level_path: String = "res://Assets/Scenes/game.tscn"
+@export var start_level_path: String = "res://Assets/planet2/test_scene_2.tscn"
 @export var skip_splash_screen: bool = false
 
 var _main_scene: Node
