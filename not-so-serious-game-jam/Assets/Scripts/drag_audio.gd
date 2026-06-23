@@ -9,6 +9,7 @@ var isDraging :bool = false
 
 var lastPos :float = 0.0
 var lastV :float = 0.0
+var filteredVelocity: float
 
 var tweenVol
 var tweenPitch
@@ -22,7 +23,7 @@ var tweenPan
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var trackLength = stream.get_length()
+	#var trackLength = stream.get_length() #used before to get random start location but not used atm
 	volume_db = mute_db
 	
 	
@@ -53,18 +54,24 @@ func dragUpdate(mouseX: float, delta: float) -> void:
 		velocity = 0
 	#need to test values
 	velocity = abs(velocity)
-	velocity = clampf(velocity,0.0,maxV)
-	if (velocity >= minV):
-		normalisedV = inverse_lerp(minV, maxV, velocity) 
-		if normalisedV > lastV:
-			tweenPitch = fadeTo(3*normalisedV + 1, "pitch_scale", delta, tweenPitch)
-			tweenVol = fadeTo( lerpf(minVol,maxVol,normalisedV) ,"volume_db", delta, tweenVol)
-		else:
-			tweenPitch = fadeTo(3*normalisedV + 1, "pitch_scale", fadeOutTime, tweenPitch)
-			tweenVol = fadeTo( lerpf(mute_db,maxVol,normalisedV) ,"volume_db", fadeOutTime, tweenVol)
-		lastV = normalisedV
-	#To do: add maths based of velocity to set pitch from 1 - 4 and volume -80db to 0db
+	#velocity = clampf(velocity,0.0,maxV)
+	filteredVelocity = lerpf(filteredVelocity,abs((mouseX - lastPos) / delta),0.1)
+	normalisedV = clampf(inverse_lerp(minV, maxV, filteredVelocity),0.0,1.0) 
+	if normalisedV > lastV:
+		if tweenPitch:
+			tweenPitch.kill()
+		pitch_scale = lerpf(pitch_scale,3.0 * normalisedV, 0.30)
+		if tweenVol:
+			tweenVol.kill()
+		volume_db = lerpf(minVol,maxVol,normalisedV) 
+	else:
+		tweenPitch = fadeTo(3*normalisedV, "pitch_scale", fadeOutTime, tweenPitch)
+		tweenVol = fadeTo( lerpf(mute_db,maxVol,normalisedV) ,"volume_db", fadeOutTime, tweenVol)
+	lastV = normalisedV
 	lastPos = mouseX
+
+	#To do: add maths based of velocity to set pitch from 1 - 4 and volume -80db to 0db
+	
 	
 	
 func dragStop() -> void:

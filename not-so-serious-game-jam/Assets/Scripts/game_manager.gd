@@ -20,7 +20,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if (current_year_length <= 0): 
 		game_jam_days_celebrated += 1
 		current_year_length = DAYS_IN_YEAR
