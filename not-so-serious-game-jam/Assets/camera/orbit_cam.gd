@@ -11,11 +11,16 @@ class_name OrbitCam
 @export var rotate_sensitivity:float=0.01
 @export var zoom_sensitivity:float=1
 
+enum MODE {
+	StandardOrbit,
+	DualLeftClick,
+}
+@export var camera_mode:MODE
 
 var angle:Vector2
 var distance:float=2.0
 var dragging:bool=false
-
+var dual_mode_hovering:bool=false
 
 var _initial_mouse_position:Vector2
 var _inital_angle:Vector2
@@ -30,13 +35,17 @@ func _process(delta: float) -> void:
 		_initial_mouse_position=get_viewport().get_mouse_position()
 		_inital_angle=angle
 		dragging=true
+	if Input.is_action_just_pressed("drag_object"):
+		_initial_mouse_position=get_viewport().get_mouse_position()
+		_inital_angle=angle
+		if camera_mode==MODE.DualLeftClick:
+			if dual_mode_hovering:
+				dragging=true
 		
 	if dragging:
 		var _mouse_delta:Vector2=get_viewport().get_mouse_position()-_initial_mouse_position
 		angle=_inital_angle-_mouse_delta*rotate_sensitivity
 		angle.y=clamp(angle.y,-PI/2+0.01,PI/2-0.01)
-
-
 		
 	var _zoom_delta:float=int(Input.is_action_just_pressed("zoom_in"))-int(Input.is_action_just_pressed("zoom_out"))
 	distance+=_zoom_delta*zoom_sensitivity
@@ -46,7 +55,9 @@ func _process(delta: float) -> void:
 		
 	if Input.is_action_just_released("pan_camera"):
 		dragging=false
-	
+	if Input.is_action_just_released("drag_object") and camera_mode==MODE.DualLeftClick:
+		dragging=false
+		
 func move_camera()->void:
 	var angle_vector:=Vector3.FORWARD
 	angle_vector*=distance

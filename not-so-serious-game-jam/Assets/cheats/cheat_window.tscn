@@ -14,7 +14,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[node name="CheatWindow" type="Window" unique_id=982572988 node_paths=PackedStringArray("MomentumModeCheckButton", "ChangeBaseSpinPlus", "ChangeBaseSpinMinus", "ChangeBaseSpinLabel", "ChangeManualSpinPlus", "ChangeManualSpinMinus", "ChangeManualSpinLabel")]
+[node name="CheatWindow" type="Window" unique_id=982572988 node_paths=PackedStringArray("MomentumModeCheckButton", "ChangeBaseSpinPlus", "ChangeBaseSpinMinus", "ChangeBaseSpinLabel", "ChangeManualSpinPlus", "ChangeManualSpinMinus", "ChangeManualSpinLabel", "InputModeOptionButton", "ShowDetectBoxCheckButton", "CameraModeOptionButton")]
 oversampling_override = 1.0
 position = Vector2i(855, 81)
 size = Vector2i(300, 500)
@@ -28,6 +28,9 @@ ChangeManualSpinPlus = NodePath("MarginContainer/VBoxContainer/PanelContainer3/H
 ChangeManualSpinMinus = NodePath("MarginContainer/VBoxContainer/PanelContainer3/HBoxContainer/Minus")
 ChangeManualSpinLabel = NodePath("MarginContainer/VBoxContainer/PanelContainer3/HBoxContainer/Display")
 change_tool_spin_increment = 0.5
+InputModeOptionButton = NodePath("MarginContainer/VBoxContainer/PanelContainer4/HBoxContainer/OptionButton")
+ShowDetectBoxCheckButton = NodePath("MarginContainer/VBoxContainer/PanelContainer5/HBoxContainer/CheckButton")
+CameraModeOptionButton = NodePath("MarginContainer/VBoxContainer/PanelContainer6/HBoxContainer/OptionButton")
 
 [node name="Panel" type="Panel" parent="." unique_id=340774689]
 anchors_preset = 15
@@ -164,8 +167,71 @@ layout_mode = 2
 size_flags_vertical = 4
 text = "+"
 
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1228734956]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer4" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1159263213]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5wk44")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer4" unique_id=1849347038]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelContainer4/HBoxContainer" unique_id=1028669978]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(1, 1, 1, 0.68235296)
+bbcode_enabled = true
+text = "Input mode"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/PanelContainer4/HBoxContainer" unique_id=1178957109]
+layout_mode = 2
+
+[node name="PanelContainer5" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=807966583]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5wk44")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer5" unique_id=1560508843]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelContainer5/HBoxContainer" unique_id=14929856]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(1, 1, 1, 0.68235296)
+bbcode_enabled = true
+text = "Show detect-box"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer/PanelContainer5/HBoxContainer" unique_id=1950821636]
+layout_mode = 2
+
+[node name="PanelContainer6" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1804570202]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5wk44")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer6" unique_id=261590461]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelContainer6/HBoxContainer" unique_id=1038629705]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(1, 1, 1, 0.68235296)
+bbcode_enabled = true
+text = "Camera mode"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/PanelContainer6/HBoxContainer" unique_id=1319783026]
+layout_mode = 2
+
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=417261329]
-visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.29803923)
-text = "test build 3"
+text = "test build 4"
