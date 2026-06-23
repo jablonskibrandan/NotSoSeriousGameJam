@@ -1,53 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://chudmainscene2"]
+[gd_scene format=3 uid="uid://cfl22f60lj00j"]
 
-[ext_resource type="Script" path="res://ui/hud/simple_hud.gd" id="1_script"]
-[ext_resource type="FontFile" path="res://Assets/fonts/kidspace/MOKidspace-Trial.ttf" id="2_font"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stats"]
-content_margin_left = 24.0
-content_margin_top = 16.0
-content_margin_right = 24.0
-content_margin_bottom = 16.0
-bg_color = Color(0.0470588, 0.0745098, 0.141176, 0.85)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(1, 0.635294, 0, 1)
-corner_radius_bottom_left = 24
-corner_radius_bottom_right = 24
-shadow_color = Color(0, 0, 0, 0.25)
-shadow_size = 8
-shadow_offset = Vector2(4, 4)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shop"]
-bg_color = Color(0.0470588, 0.0745098, 0.141176, 0.92)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(1, 0.635294, 0, 1)
-corner_radius_top_left = 24
-corner_radius_top_right = 24
-corner_radius_bottom_right = 24
-corner_radius_bottom_left = 24
-shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 8
-shadow_offset = Vector2(4, 4)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scroll_track"]
-content_margin_left = 8.0
-content_margin_right = 8.0
-bg_color = Color(0.0784314, 0.109804, 0.180392, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.180392, 0.25098, 0.380392, 0.25)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[ext_resource type="Script" uid="uid://cc3v0d4gi4pib" path="res://ui/hud/simple_hud.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://cuwnwnladdrd8" path="res://Assets/fonts/kidspace/MOKidspace-Trial.ttf" id="2_font"]
+[ext_resource type="Texture2D" uid="uid://bmmpht0mlkxwc" path="res://icon.svg" id="3_icon"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scroll_grabber"]
 bg_color = Color(1, 0.623529, 0.109804, 1)
@@ -85,12 +40,58 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scroll_track"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+bg_color = Color(0.0784314, 0.109804, 0.180392, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.180392, 0.25098, 0.380392, 0.25)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="Theme" id="Theme_hud"]
 default_font = ExtResource("2_font")
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_scroll_grabber")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_scroll_grabber_hover")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_scroll_grabber_pressed")
 VScrollBar/styles/scroll = SubResource("StyleBoxFlat_scroll_track")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stats"]
+content_margin_left = 24.0
+content_margin_top = 16.0
+content_margin_right = 24.0
+content_margin_bottom = 16.0
+bg_color = Color(0.0470588, 0.0745098, 0.141176, 0.85)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.635294, 0, 1)
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0, 0, 0, 0.25)
+shadow_size = 8
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shop"]
+bg_color = Color(0.0470588, 0.0745098, 0.141176, 0.92)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.635294, 0, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 8
+shadow_offset = Vector2(4, 4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tooltip"]
 content_margin_left = 12.0
@@ -111,10 +112,45 @@ shadow_color = Color(0, 0, 0, 0.3)
 shadow_size = 6
 shadow_offset = Vector2(3, 3)
 
-[node name="SimpleHUD" type="CanvasLayer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialogue"]
+content_margin_left = 24.0
+content_margin_top = 16.0
+content_margin_right = 24.0
+content_margin_bottom = 16.0
+bg_color = Color(0.0470588, 0.0745098, 0.141176, 0.9)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.635294, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.25)
+shadow_size = 8
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialogue_portrait"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0588235, 0.0784314, 0.12549, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.960784, 0.831373, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="SimpleHUD" type="CanvasLayer" unique_id=222420991]
 script = ExtResource("1_script")
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." unique_id=69255664]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -124,90 +160,89 @@ grow_vertical = 2
 mouse_filter = 2
 theme = SubResource("Theme_hud")
 
-[node name="StatsPanel" type="PanelContainer" parent="UI"]
+[node name="StatsPanel" type="PanelContainer" parent="UI" unique_id=365791467]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = -1
+anchor_left = 0.361
+anchor_right = 0.361
 offset_left = -350.0
-offset_top = 0.0
 offset_right = 350.0
 offset_bottom = 100.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_stats")
 
-[node name="GridContainer" type="GridContainer" parent="UI/StatsPanel"]
+[node name="GridContainer" type="GridContainer" parent="UI/StatsPanel" unique_id=262889510]
 layout_mode = 2
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 8
 columns = 4
 
-[node name="SpeedLabel" type="Label" parent="UI/StatsPanel/GridContainer"]
+[node name="SpeedLabel" type="Label" parent="UI/StatsPanel/GridContainer" unique_id=366617184]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.639216, 0.701961, 0.780392, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 15
 text = "SPEED:"
 
-[node name="SpeedValue" type="Label" parent="UI/StatsPanel/GridContainer"]
+[node name="SpeedValue" type="Label" parent="UI/StatsPanel/GridContainer" unique_id=1918134478]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(140, 0)
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.960784, 0.831373, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 18
 text = "0.00 rev/s"
 
-[node name="CashLabel" type="Label" parent="UI/StatsPanel/GridContainer"]
+[node name="CashLabel" type="Label" parent="UI/StatsPanel/GridContainer" unique_id=1816966398]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.639216, 0.701961, 0.780392, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 15
 text = "MONEY:"
 
-[node name="CashValue" type="Label" parent="UI/StatsPanel/GridContainer"]
+[node name="CashValue" type="Label" parent="UI/StatsPanel/GridContainer" unique_id=494167360]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(140, 0)
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.15, 0.87, 0.45, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 18
 text = "$0"
 
-[node name="DaysLabel" type="Label" parent="UI/StatsPanel/GridContainer"]
+[node name="DaysLabel" type="Label" parent="UI/StatsPanel/GridContainer" unique_id=774252542]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.639216, 0.701961, 0.780392, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 15
 text = "DAYS TO XMAS:"
 
-[node name="DaysValue" type="Label" parent="UI/StatsPanel/GridContainer"]
+[node name="DaysValue" type="Label" parent="UI/StatsPanel/GridContainer" unique_id=1537194052]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 18
 text = "365"
 
-[node name="CelebratedLabel" type="Label" parent="UI/StatsPanel/GridContainer"]
+[node name="CelebratedLabel" type="Label" parent="UI/StatsPanel/GridContainer" unique_id=71980194]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.639216, 0.701961, 0.780392, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 15
 text = "CELEBRATED:"
 
-[node name="CelebratedValue" type="Label" parent="UI/StatsPanel/GridContainer"]
+[node name="CelebratedValue" type="Label" parent="UI/StatsPanel/GridContainer" unique_id=1005788632]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.623529, 0.109804, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 18
 text = "0"
 
-[node name="ShopPanel" type="PanelContainer" parent="UI"]
+[node name="ShopPanel" type="PanelContainer" parent="UI" unique_id=975458287]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 600)
 layout_mode = 1
@@ -223,18 +258,18 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_shop")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/ShopPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/ShopPanel" unique_id=1362501708]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/ShopPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ShopPanel/MarginContainer" unique_id=423725499]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Label" type="Label" parent="UI/ShopPanel/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="UI/ShopPanel/MarginContainer/VBoxContainer" unique_id=81987988]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.635294, 0, 1)
 theme_override_fonts/font = ExtResource("2_font")
@@ -242,20 +277,20 @@ theme_override_font_sizes/font_size = 26
 text = "SHOP UPGRADES"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="UI/ShopPanel/MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/ShopPanel/MarginContainer/VBoxContainer" unique_id=120302487]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="UpgradesContainer" type="VBoxContainer" parent="UI/ShopPanel/MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="UpgradesContainer" type="VBoxContainer" parent="UI/ShopPanel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=417690183]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 12
 
-[node name="TooltipPanel" type="PanelContainer" parent="UI"]
+[node name="TooltipPanel" type="PanelContainer" parent="UI" unique_id=893481512]
 unique_name_in_owner = true
 visible = false
 z_index = 10
@@ -266,12 +301,12 @@ offset_bottom = 110.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tooltip")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/TooltipPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/TooltipPanel" unique_id=620348582]
 layout_mode = 2
-theme_override_constants/separation = 6
 mouse_filter = 2
+theme_override_constants/separation = 6
 
-[node name="TooltipTitle" type="Label" parent="UI/TooltipPanel/VBoxContainer"]
+[node name="TooltipTitle" type="Label" parent="UI/TooltipPanel/VBoxContainer" unique_id=1320193775]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.960784, 0.831373, 1)
@@ -279,7 +314,7 @@ theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 18
 text = "Item Title"
 
-[node name="TooltipDesc" type="Label" parent="UI/TooltipPanel/VBoxContainer"]
+[node name="TooltipDesc" type="Label" parent="UI/TooltipPanel/VBoxContainer" unique_id=387502756]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.9)
@@ -288,13 +323,13 @@ theme_override_font_sizes/font_size = 12
 text = "Item description goes here."
 autowrap_mode = 3
 
-[node name="TooltipDivider" type="ColorRect" parent="UI/TooltipPanel/VBoxContainer"]
+[node name="TooltipDivider" type="ColorRect" parent="UI/TooltipPanel/VBoxContainer" unique_id=1730730732]
 custom_minimum_size = Vector2(0, 1.5)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0, 0.960784, 0.831373, 0.4)
 
-[node name="TooltipScience" type="RichTextLabel" parent="UI/TooltipPanel/VBoxContainer"]
+[node name="TooltipScience" type="RichTextLabel" parent="UI/TooltipPanel/VBoxContainer" unique_id=50069051]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
@@ -305,7 +340,7 @@ bbcode_enabled = true
 text = "[center][u][i]It works cause of science duh[/i][/u][/center]"
 fit_content = true
 
-[node name="FloatingTextContainer" type="Control" parent="UI"]
+[node name="FloatingTextContainer" type="Control" parent="UI" unique_id=1170637257]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -314,3 +349,61 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="DialoguePanel" type="PanelContainer" parent="UI" unique_id=1932055737]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.361
+anchor_top = 1.0
+anchor_right = 0.361
+anchor_bottom = 1.0
+offset_left = -430.0
+offset_top = -182.0
+offset_right = 430.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dialogue")
+
+[node name="DialogueHBox" type="HBoxContainer" parent="UI/DialoguePanel" unique_id=1669872193]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="PortraitPanel" type="PanelContainer" parent="UI/DialoguePanel/DialogueHBox" unique_id=1827701182]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_dialogue_portrait")
+
+[node name="PortraitRect" type="TextureRect" parent="UI/DialoguePanel/DialogueHBox/PortraitPanel" unique_id=2103691602]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("3_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DialogueTextLayout" type="VBoxContainer" parent="UI/DialoguePanel/DialogueHBox" unique_id=1702520353]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 6
+
+[node name="SpeakerLabel" type="Label" parent="UI/DialoguePanel/DialogueHBox/DialogueTextLayout" unique_id=1233631562]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.960784, 0.831373, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+text = "Godot"
+
+[node name="DialogueLabel" type="Label" parent="UI/DialoguePanel/DialogueHBox/DialogueTextLayout" unique_id=2111036942]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 0.95)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 15
+text = "This just a dummy dialouge box you dumb fuck"
+autowrap_mode = 3

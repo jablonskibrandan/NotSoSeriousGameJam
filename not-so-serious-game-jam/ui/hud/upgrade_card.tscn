@@ -5,9 +5,9 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
 content_margin_left = 12.0
-content_margin_top = 10.0
+content_margin_top = 14.0
 content_margin_right = 12.0
-content_margin_bottom = 10.0
+content_margin_bottom = 14.0
 bg_color = Color(0.0784314, 0.109804, 0.180392, 0.95)
 border_width_left = 3
 border_width_top = 3
@@ -98,9 +98,9 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [node name="UpgradeCard" type="MarginContainer"]
-custom_minimum_size = Vector2(440, 115)
-offset_right = 440.0
-offset_bottom = 115.0
+custom_minimum_size = Vector2(460, 135)
+offset_right = 460.0
+offset_bottom = 135.0
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 10
@@ -135,11 +135,12 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="TextContainer" type="VBoxContainer" parent="InnerPanel/HBoxContainer"]
+custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 mouse_filter = 2
-theme_override_constants/separation = 4
+theme_override_constants/separation = 8
 
 [node name="TitlePanel" type="PanelContainer" parent="InnerPanel/HBoxContainer/TextContainer"]
 layout_mode = 2
@@ -161,6 +162,7 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme_override_colors/font_color = Color(0.701961, 0.760784, 0.85098, 1)
+theme_override_constants/line_spacing = 8
 theme_override_fonts/font = ExtResource("2_font_kidspace")
 theme_override_font_sizes/font_size = 12
 text = "Owned: 0
@@ -169,7 +171,7 @@ Rotations: 0"
 
 [node name="BuyButton" type="Button" parent="InnerPanel/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(140, 45)
+custom_minimum_size = Vector2(110, 45)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4

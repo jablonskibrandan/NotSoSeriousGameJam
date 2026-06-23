@@ -10,7 +10,7 @@ class_name OrbitCam
 @export var max_zoom_distance: float = 20.0
 @export var rotate_sensitivity: float = 0.01
 @export var zoom_sensitivity: float = 1
-@export var horizontal_screen_offset_factor: float = -0.15
+@export var horizontal_screen_offset_factor: float = 0.25
 
 enum MODE {
 	StandardOrbit,
