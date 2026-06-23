@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dgo647gy7vv0t" path="res://Assets/icons/icon_assets/addons/at-icons/control/wind.svg" id="15_windmill"]
 [ext_resource type="Texture2D" uid="uid://ceqgvk424j2f3" path="res://Assets/icons/icon_assets/addons/at-icons/control/fire.svg" id="16_rocket"]
 [ext_resource type="Texture2D" uid="uid://ba1whmswcfw8u" path="res://Assets/icons/icon_assets/addons/at-icons/control/gauge.svg" id="17_boost"]
+[ext_resource type="PackedScene" uid="uid://cpostoutline123" path="res://shaders/outline_post_process.tscn" id="18_outline"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_40y28"]
 panorama = ExtResource("1_8d1l8")
@@ -132,6 +133,8 @@ max_zoom_distance = 40.0
 zoom_sensitivity = 2.0
 camera_mode = 1
 metadata/_custom_type_script = "uid://ch5ric2wnrrn8"
+
+[node name="OutlinePostProcess" parent="OrbitCam" instance=ExtResource("18_outline")]
 
 [node name="Sun" parent="." unique_id=1936071803 instance=ExtResource("8_10uwm")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -82)

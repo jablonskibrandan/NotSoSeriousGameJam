@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://boifo1wodse1x" path="res://Assets/planet/planet-water.tscn" id="4_water"]
 [ext_resource type="PackedScene" uid="uid://b225p2cyjgsjj" path="res://Assets/Art/earth/LowPolyClouds.glb" id="5_clouds"]
 [ext_resource type="PackedScene" uid="uid://dw43uo4g753qt" path="res://Assets/Scenes/sun.tscn" id="6_sun"]
+[ext_resource type="PackedScene" uid="uid://dssrhgtun6imk" path="res://shaders/outline_post_process.tscn" id="7_outline"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_space"]
 panorama = ExtResource("2_sky")
@@ -23,6 +24,10 @@ radius = 4.0
 [node name="SpaceMenuBackground" type="Node3D" unique_id=566284478]
 script = ExtResource("1_script")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=749717056]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1539614950]
 environment = SubResource("Environment_space")
 
@@ -38,6 +43,8 @@ shape = SubResource("SphereShape3D_space")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1857891022]
 transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, 7.5, 5, 7.5)
+
+[node name="OutlinePostProcess" parent="Camera3D" unique_id=755796283 instance=ExtResource("7_outline")]
 
 [node name="LowPolyClouds" parent="." unique_id=412822455 instance=ExtResource("5_clouds")]
 
