@@ -13,6 +13,7 @@ const UPGRADE_CARD_SCENE: PackedScene = preload("res://ui/hud/upgrade_card.tscn"
 @onready var tooltip_panel: PanelContainer = %TooltipPanel
 @onready var tooltip_title: Label = %TooltipTitle
 @onready var tooltip_desc: Label = %TooltipDesc
+@onready var shop_panel: PanelContainer = %ShopPanel
 
 @export var game_data: GameData = null
 @export var upgrade_manager: UpgradeManager = null
@@ -25,6 +26,8 @@ var _current_days: int = 0
 var _current_christmases: int = 0
 var _current_rps: float = 0.0
 var _hovered_config: UpgradeButtonConfig = null
+var _is_shop_hovered: bool = false
+var _shop_tween: Tween = null
 
 # Juice & Shake Tweens
 var _planet_tween: Tween = null
@@ -32,6 +35,10 @@ var _stats_tween: Tween = null
 
 func _ready() -> void:
 	await get_tree().process_frame
+	
+	if shop_panel:
+		# Lower opacity initially to improve the initial screen balance
+		shop_panel.modulate.a = 0.5
 	
 	if game_data == null or upgrade_manager == null:
 		var parent := get_parent()
@@ -67,6 +74,8 @@ func initialize(p_game_data: GameData, p_upgrade_manager: UpgradeManager) -> voi
 	_update_stats_label()
 
 func _process(delta: float) -> void:
+	_update_shop_hover()
+	
 	# Update stats
 	if game_data:
 		var rad_speed: float = game_data._base_spin
@@ -298,3 +307,25 @@ func _input(event: InputEvent) -> void:
 			if cheat_win:
 				cheat_win.visible = not cheat_win.visible
 				get_viewport().set_input_as_handled()
+
+
+func _update_shop_hover() -> void:
+	if not shop_panel:
+		return
+	
+	var shop_rect := shop_panel.get_global_rect()
+	var mouse_pos := shop_panel.get_viewport().get_mouse_position()
+	var is_hovered := shop_rect.has_point(mouse_pos)
+	
+	if is_hovered != _is_shop_hovered:
+		_is_shop_hovered = is_hovered
+		_tween_shop_opacity()
+
+
+func _tween_shop_opacity() -> void:
+	if _shop_tween and _shop_tween.is_valid():
+		_shop_tween.kill()
+		
+	_shop_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	var target_opacity := 1.0 if _is_shop_hovered else 0.5
+	_shop_tween.tween_property(shop_panel, "modulate:a", target_opacity, 0.25)

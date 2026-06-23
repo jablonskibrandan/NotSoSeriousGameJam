@@ -6,10 +6,11 @@ class_name OrbitCam
 @export var initial_angle_deg:Vector2
 @export var initial_distance:float
 @export_group("Properties")
-@export var min_zoom_distance:float=5.0
-@export var max_zoom_distance:float=20.0
-@export var rotate_sensitivity:float=0.01
-@export var zoom_sensitivity:float=1
+@export var min_zoom_distance: float = 5.0
+@export var max_zoom_distance: float = 20.0
+@export var rotate_sensitivity: float = 0.01
+@export var zoom_sensitivity: float = 1
+@export var horizontal_screen_offset_factor: float = -0.15
 
 enum MODE {
 	StandardOrbit,
@@ -84,3 +85,6 @@ func move_camera()->void:
 		
 	global_position = anchor_pos + angle_vector + offset
 	look_at(anchor_pos)
+	
+	# Framed horizontally to offset for the HUD shop UI on the right
+	h_offset = distance * horizontal_screen_offset_factor
