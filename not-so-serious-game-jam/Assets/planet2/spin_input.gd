@@ -38,7 +38,8 @@ func _ready() -> void:
 	
 func _gui_input(event: InputEvent) -> void:
 	var mouse_pos := get_global_mouse_position()
-	var offset := mouse_pos - get_viewport().get_visible_rect().size / 2.0
+	var planet_screen_pos := get_planet_screen_position()
+	var offset := mouse_pos - planet_screen_pos
 	var mouse_dist_to_center := offset.length_squared()
 			
 	if event.is_action_pressed("drag_object"):
@@ -75,10 +76,11 @@ func _process(delta: float) -> void:
 	
 	queue_redraw()
 	var mouse_pos := get_global_mouse_position()
-	var offset := mouse_pos - get_viewport().get_visible_rect().size / 2.0
+	var planet_screen_pos := get_planet_screen_position()
+	var offset := mouse_pos - planet_screen_pos
 	var mouse_dist_to_center := offset.length_squared()
-	var outside_planet:bool=mouse_dist_to_center > get_virtual_radius() ** 2.0
-	orbit_cam.dual_mode_hovering=outside_planet and _hovered
+	var outside_planet := mouse_dist_to_center > get_virtual_radius() ** 2.0
+	orbit_cam.dual_mode_hovering = outside_planet and _hovered
 	
 func _draw() -> void:
 	if should_show_virtual_radius:
@@ -89,8 +91,10 @@ func _draw() -> void:
 				draw_rect(rect, Color(0.89, 0.647, 0.0, 0.306), true)
 				draw_rect(rect, Color(0.891, 0.646, 0.0, 1.0), false, 5.0)
 			INPUT_MODE.PLANET_DRAG_MODE:
-				draw_circle(size / 2.0, get_virtual_radius(), Color(0.89, 0.647, 0.0, 0.306), true)
-				draw_circle(size / 2.0, get_virtual_radius(), Color(0.891, 0.646, 0.0, 1.0), false, 5.0)
+				var planet_screen_pos := get_planet_screen_position()
+				var local_center := make_canvas_position_local(planet_screen_pos)
+				draw_circle(local_center, get_virtual_radius(), Color(0.89, 0.647, 0.0, 0.306), true)
+				draw_circle(local_center, get_virtual_radius(), Color(0.891, 0.646, 0.0, 1.0), false, 5.0)
 
 
 func get_virtual_radius() -> float:
@@ -100,6 +104,13 @@ func get_virtual_radius() -> float:
 	var ratio := rad_to_deg(angle) / orbit_cam.fov
 	var height := 1080.0 * ratio
 	return height
+
+
+func get_planet_screen_position() -> Vector2:
+	if is_instance_valid(orbit_cam) and is_instance_valid(orbit_cam.anchor):
+		# Query camera to project the 3D planet center to screen space, supporting any HUD/camera offsets.
+		return orbit_cam.unproject_position(orbit_cam.anchor.global_position)
+	return get_viewport().get_visible_rect().size / 2.0
 
 
 	
