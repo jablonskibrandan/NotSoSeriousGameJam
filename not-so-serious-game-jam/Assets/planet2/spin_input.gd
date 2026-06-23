@@ -13,8 +13,8 @@ class_name SpinInput
 @export var orbit_cam: OrbitCam
 
 enum INPUT_MODE {
-	ScreenDragMode,
-	PlanetDragMode,
+	SCREEN_DRAG_MODE,
+	PLANET_DRAG_MODE,
 }
 
 var _is_dragging_mouse: bool = false
@@ -30,6 +30,7 @@ func add_active_spin_boost(amount: float) -> void:
 
 func _ready() -> void:
 	assert(game_data, "Please assign game_data in SpinInput")
+	assert(orbit_cam, "Please assign orbit_cam in SpinInput")
 
 func _gui_input(event: InputEvent) -> void:
 	var mouse_pos := get_global_mouse_position()
@@ -37,7 +38,7 @@ func _gui_input(event: InputEvent) -> void:
 	var mouse_dist_to_center := offset.length_squared()
 			
 	if event.is_action_pressed("drag_object"):
-		if input_mode == INPUT_MODE.PlanetDragMode:
+		if input_mode == INPUT_MODE.PLANET_DRAG_MODE:
 			if mouse_dist_to_center <= get_virtual_radius() ** 2.0:
 				_is_dragging_mouse = true
 		else:
@@ -71,15 +72,15 @@ func _process(delta: float) -> void:
 	
 	queue_redraw()
 	
-func _draw():
+func _draw() -> void:
 	if should_show_virtual_radius:
 		match input_mode:
-			INPUT_MODE.ScreenDragMode:
+			INPUT_MODE.SCREEN_DRAG_MODE:
 				var rect := get_rect()
 				rect.position -= position
 				draw_rect(rect, Color(0.89, 0.647, 0.0, 0.306), true)
 				draw_rect(rect, Color(0.891, 0.646, 0.0, 1.0), false, 5.0)
-			INPUT_MODE.PlanetDragMode:
+			INPUT_MODE.PLANET_DRAG_MODE:
 				draw_circle(size / 2.0, get_virtual_radius(), Color(0.89, 0.647, 0.0, 0.306), true)
 				draw_circle(size / 2.0, get_virtual_radius(), Color(0.891, 0.646, 0.0, 1.0), false, 5.0)
 

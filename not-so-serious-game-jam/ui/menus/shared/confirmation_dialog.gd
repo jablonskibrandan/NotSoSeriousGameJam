@@ -11,8 +11,6 @@ const _TWEEN_DUR := 0.14
 @onready var _message_label: Label = %MessageLabel
 @onready var _confirm_btn: Button = %ConfirmButton
 @onready var _cancel_btn: Button = %CancelButton
-@onready var _sfx_click: AudioStreamPlayer = $SFX/Click
-@onready var _sfx_hover: AudioStreamPlayer = $SFX/Hover
 
 
 func _ready() -> void:
@@ -31,12 +29,12 @@ func setup(message: String, confirm_text: String = "PROCEED", cancel_text: Strin
 
 
 func _on_confirm_pressed() -> void:
-	_sfx_click.play()
+	MusicManager.play_ui_click()
 	confirmed.emit()
 
 
 func _on_cancel_pressed() -> void:
-	_sfx_click.play()
+	MusicManager.play_ui_click()
 	cancelled.emit()
 
 
@@ -48,7 +46,7 @@ func _on_active_state_changed(btn: Button) -> void:
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	
 	if is_active:
-		_sfx_hover.play()
+		MusicManager.play_ui_hover()
 		var mod_color = Color(1.3, 0.6, 0.6, 1.0) if btn == _confirm_btn else UIConstants.DIALOG_HOVER_MODULATE
 		tween.tween_property(btn, "modulate", mod_color, UIConstants.TWEEN_DURATION)
 		tween.tween_property(btn, "scale", Vector2(1.1, 1.1), UIConstants.TWEEN_DURATION)

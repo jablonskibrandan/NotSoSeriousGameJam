@@ -111,7 +111,7 @@ func _push_menu(menu: Control) -> void:
 
 func _focus_first_element(node: Node) -> void:
 	if not node: return
-	var first_focus = _find_focusable_child(node)
+	var first_focus: Control = _find_focusable_child(node)
 	if first_focus:
 		first_focus.grab_focus()
 
@@ -121,8 +121,8 @@ func _find_focusable_child(node: Node) -> Control:
 		if node is Button or node is HSlider or node is VSlider or node is LineEdit:
 			return node
 	
-	for child in node.get_children():
-		var found = _find_focusable_child(child)
+	for child: Node in node.get_children():
+		var found: Control = _find_focusable_child(child)
 		if found:
 			return found
 	return null
@@ -243,14 +243,14 @@ func _on_exit_requested() -> void:
 
 
 func _on_main_menu_from_pause() -> void:
-	_show_confirm("RETURN TO MAIN MENU?\nAny unsaved progress will be lost.", _go_to_main_menu)
+	_show_confirm("RETURN TO MAIN MENU?\nAny unsaved progress will be lost.", go_to_main_menu)
 
 
 func _on_restart_requested() -> void:
-	_show_confirm("RESTART GAME?\nAny unsaved progress will be lost.", _restart_game)
+	_show_confirm("RESTART GAME?\nAny unsaved progress will be lost.", restart_game)
 
 
-func _restart_game() -> void:
+func restart_game() -> void:
 	get_tree().paused = false
 	_clear_menu_stack()
 	GameManagerObject.reset_game_state()
@@ -259,7 +259,7 @@ func _restart_game() -> void:
 	_begin_game_transition()
 
 
-func _go_to_main_menu() -> void:
+func go_to_main_menu() -> void:
 	GameManagerObject.set_state(GameManagerObject.GameState.MAIN_MENU)
 	_clear_menu_stack()
 	GameManagerObject.reset_game_state()

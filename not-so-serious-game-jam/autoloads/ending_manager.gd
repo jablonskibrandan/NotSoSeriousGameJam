@@ -41,22 +41,21 @@ func _trigger_ending(scene: PackedScene) -> void:
 	GameManagerObject.set_state(GameManagerObject.GameState.ENDING)
 	get_tree().paused = true
 	_ensure_audio_processes(get_tree().root)
-	_apply_camera_drift(8.0) # Slow 8-second drift
+	_apply_camera_drift(8.0)
 	
-	# Mute SFX bus during endings
-	var sfx_bus_idx = AudioServer.get_bus_index("SFX")
+	var sfx_bus_idx: int = AudioServer.get_bus_index("SFX")
 	if sfx_bus_idx != -1:
 		AudioServer.set_bus_mute(sfx_bus_idx, true)
 	
 	if is_instance_valid(_current_overlay):
 		_current_overlay.queue_free()
 		
-	var overlay = scene.instantiate()
+	var overlay: Node = scene.instantiate()
 	overlay.process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().root.add_child(overlay)
 	_current_overlay = overlay
 	
-	var anim = overlay.get_node("AnimationPlayer")
+	var anim := overlay.get_node("AnimationPlayer") as AnimationPlayer
 	anim.play("show_ending")
 	
 	await anim.animation_finished
@@ -68,11 +67,10 @@ func do_gameover() -> void:
 
 
 func _apply_camera_drift(duration: float) -> void:
-	var cam = get_viewport().get_camera_3d()
+	var cam: Camera3D = get_viewport().get_camera_3d()
 	if cam:
-		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
-		tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS) # Run while paused
-		# Slow zoom in (FOV reduction)
+		var tween: Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+		tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 		tween.tween_property(cam, "fov", cam.fov - 5.0, duration)
 
 
@@ -80,12 +78,12 @@ func _show_credits() -> void:
 	if is_instance_valid(_current_overlay):
 		_current_overlay.queue_free()
 	
-	var credits = CREDITS_SCENE.instantiate()
+	var credits: Node = CREDITS_SCENE.instantiate()
 	credits.process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().root.add_child(credits)
 	_current_overlay = credits
 	
-	var anim = credits.get_node("AnimationPlayer")
+	var anim := credits.get_node("AnimationPlayer") as AnimationPlayer
 	anim.play("play_credits")
 	
 	await anim.animation_finished
@@ -97,27 +95,23 @@ func _on_restart_pressed() -> void:
 	if is_instance_valid(_current_overlay):
 		_current_overlay.queue_free()
 	
-	# Unmute SFX bus when restarting
-	var sfx_bus_idx = AudioServer.get_bus_index("SFX")
+	var sfx_bus_idx: int = AudioServer.get_bus_index("SFX")
 	if sfx_bus_idx != -1:
 		AudioServer.set_bus_mute(sfx_bus_idx, false)
 		
-	# SceneManager handle unpausing
-	SceneManager._restart_game()
+	SceneManager.restart_game()
 
 
 func _on_menu_pressed() -> void:
-	# Stay black during transition
 	if is_instance_valid(_current_overlay):
 		if _current_overlay is CanvasLayer:
 			_current_overlay.layer = 100
 			
-	# Unmute SFX bus when returning to menu
-	var sfx_bus_idx = AudioServer.get_bus_index("SFX")
+	var sfx_bus_idx: int = AudioServer.get_bus_index("SFX")
 	if sfx_bus_idx != -1:
 		AudioServer.set_bus_mute(sfx_bus_idx, false)
 			
-	await SceneManager._go_to_main_menu()
+	await SceneManager.go_to_main_menu()
 	
 	if is_instance_valid(_current_overlay):
 		_current_overlay.queue_free()

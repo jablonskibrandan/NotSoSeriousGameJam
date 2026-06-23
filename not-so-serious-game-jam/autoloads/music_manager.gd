@@ -19,7 +19,7 @@ func _ready() -> void:
 	_player.stream = MENU_MUSIC
 	
 	for i in AudioServer.get_bus_effect_count(_music_bus_index):
-		var effect = AudioServer.get_bus_effect(_music_bus_index, i)
+		var effect := AudioServer.get_bus_effect(_music_bus_index, i)
 		if effect is AudioEffectLowPassFilter:
 			_lp_filter = effect
 			break
@@ -40,8 +40,8 @@ func set_muffled(muffled: bool) -> void:
 	if not _lp_filter:
 		return
 		
-	var target = LOW_PASS_MIN if muffled else LOW_PASS_MAX
-	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	var target: float = LOW_PASS_MIN if muffled else LOW_PASS_MAX
+	var tween: Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(_lp_filter, "cutoff_hz", target, 0.5)
 
 
@@ -65,7 +65,7 @@ func _fade_in() -> void:
 	if not _player.playing:
 		_player.play()
 	
-	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	var tween: Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(_player, "volume_db", 0.0, FADE_DURATION).from(-40.0)
 
 
@@ -73,6 +73,6 @@ func _fade_out() -> void:
 	if not _player.playing:
 		return
 		
-	var tween = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
+	var tween: Tween = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(_player, "volume_db", -40.0, FADE_DURATION)
 	tween.tween_callback(_player.stop)

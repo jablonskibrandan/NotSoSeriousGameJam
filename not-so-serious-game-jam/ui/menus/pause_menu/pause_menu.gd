@@ -11,8 +11,6 @@ signal exit_requested()
 const _DIM := 0.38
 const _TWEEN_DUR := 0.14
 
-@onready var _sfx_hover: AudioStreamPlayer = $SFX/Hover
-@onready var _sfx_click: AudioStreamPlayer = $SFX/Click
 @onready var _resume_btn: Button = %ResumeButton
 @onready var _restart_btn: Button = %RestartButton
 
@@ -31,34 +29,31 @@ func _ready() -> void:
 
 
 func _on_resume_pressed() -> void:
-	_sfx_click.play()
+	MusicManager.play_ui_click()
 	resume_requested.emit()
 
 
 func _on_restart_pressed() -> void:
-	_sfx_click.play()
+	MusicManager.play_ui_click()
 	restart_requested.emit()
 
 
-
-
-
 func _on_options_pressed() -> void:
-	_sfx_click.play()
+	MusicManager.play_ui_click()
 	options_requested.emit()
 
 func _on_guide_pressed() -> void:
-	_sfx_click.play()
+	MusicManager.play_ui_click()
 	guide_requested.emit()
 
 
 func _on_main_menu_pressed() -> void:
-	_sfx_click.play()
+	MusicManager.play_ui_click()
 	main_menu_requested.emit()
 
 
 func _on_exit_pressed() -> void:
-	_sfx_click.play()
+	MusicManager.play_ui_click()
 	exit_requested.emit()
 
 
@@ -70,7 +65,7 @@ func _on_active_state_changed(btn: Button) -> void:
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	
 	if is_active:
-		_sfx_hover.play()
+		MusicManager.play_ui_hover()
 		tween.tween_property(btn, "modulate", Color(1.2, 1.2, 1.2, 1.0), _TWEEN_DUR)
 		tween.tween_property(btn, "scale", Vector2(1.05, 1.05), _TWEEN_DUR)
 	else:

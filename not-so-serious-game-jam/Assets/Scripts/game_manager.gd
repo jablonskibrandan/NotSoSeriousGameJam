@@ -12,6 +12,9 @@ enum GameState {
 
 signal currency_changed(current_currency: int)
 signal state_changed(new_state: GameState)
+signal year_length_changed(current_year_length: int)
+signal days_celebrated_changed(game_jam_days_celebrated: int)
+signal rotations_completed(total_rotations_seen: int)
 
 const DAYS_IN_YEAR: int = 365
 var current_year_length: int
@@ -28,22 +31,22 @@ func _ready() -> void:
 	current_year_length = 365
 
 
-func _process(delta: float) -> void:
-	if (current_year_length <= 0): 
-		game_jam_days_celebrated += 1
-		current_year_length = DAYS_IN_YEAR
-	
-	if (current_currency <= 0):
-		current_currency = 0
-	
 func shorten_year_length(days: int) -> void: 
 	current_year_length -= days
+	while current_year_length <= 0:
+		game_jam_days_celebrated += 1
+		current_year_length += DAYS_IN_YEAR
+		days_celebrated_changed.emit(game_jam_days_celebrated)
+	
+	year_length_changed.emit(current_year_length)
 	
 func celebrate_another_game_jam_day() -> void:
 	game_jam_days_celebrated += 1
+	days_celebrated_changed.emit(game_jam_days_celebrated)
 
 func add_to_current_currency(money_to_add: int) -> void:
 	current_currency += money_to_add
+	currency_changed.emit(current_currency)
 
 
 
@@ -57,6 +60,7 @@ func try_spend_currency(amount: int) -> bool:
 	
 func on_planet_rotation_completed(rotation_amount: int) -> void:
 	total_rotations_seen += rotation_amount
+	rotations_completed.emit(total_rotations_seen)
 
 func set_state(new_state: GameState) -> void:
 	if current_state == new_state:
@@ -116,6 +120,9 @@ func reset_game_state() -> void:
 	rotation_count = 0
 	total_rotations_seen = 0
 	is_input_locked = false
+	currency_changed.emit(current_currency)
+	year_length_changed.emit(current_year_length)
+	days_celebrated_changed.emit(game_jam_days_celebrated)
 
 
 

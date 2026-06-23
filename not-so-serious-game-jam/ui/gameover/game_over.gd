@@ -1,18 +1,17 @@
 extends Control
+class_name GameOverMenu
 
 @onready var _restart_btn: Button = %RestartButton
 @onready var _menu_btn: Button = %MenuButton
-@onready var _sfx_hover: AudioStreamPlayer = $SFX/Hover
-@onready var _sfx_click: AudioStreamPlayer = $SFX/Click
 
 
 func _ready() -> void:
-	for btn in [_restart_btn, _menu_btn]:
+	for btn: Button in [_restart_btn, _menu_btn]:
 		btn.focus_mode = Control.FOCUS_ALL
 		btn.focus_entered.connect(_on_focus_entered.bind(btn))
 		btn.focus_exited.connect(_on_active_state_changed.bind(btn))
 		btn.mouse_entered.connect(btn.grab_focus)
-		btn.pressed.connect(func(): _sfx_click.play())
+		btn.pressed.connect(func() -> void: MusicManager.play_ui_click())
 		_on_active_state_changed(btn)
 	
 	$AnimationPlayer.play("fade_in")
@@ -23,7 +22,7 @@ func _ready() -> void:
 
 
 func _on_focus_entered(btn: Button) -> void:
-	_sfx_hover.play()
+	MusicManager.play_ui_hover()
 	_on_active_state_changed(btn)
 
 

@@ -14,23 +14,23 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[node name="CheatWindow" type="Window" unique_id=982572988 node_paths=PackedStringArray("MomentumModeCheckButton", "ChangeBaseSpinPlus", "ChangeBaseSpinMinus", "ChangeBaseSpinLabel", "ChangeManualSpinPlus", "ChangeManualSpinMinus", "ChangeManualSpinLabel", "InputModeOptionButton", "ShowDetectBoxCheckButton", "CameraModeOptionButton")]
+[node name="CheatWindow" type="Window" unique_id=982572988 node_paths=PackedStringArray("momentum_mode_check_button", "change_base_spin_plus", "change_base_spin_minus", "change_base_spin_label", "change_manual_spin_plus", "change_manual_spin_minus", "change_manual_spin_label", "input_mode_option_button", "show_detect_box_check_button", "camera_mode_option_button")]
 oversampling_override = 1.0
 position = Vector2i(855, 81)
 size = Vector2i(300, 500)
 script = ExtResource("1_5wk44")
-MomentumModeCheckButton = NodePath("MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/CheckButton")
-ChangeBaseSpinPlus = NodePath("MarginContainer/VBoxContainer/PanelContainer2/HBoxContainer/Plus")
-ChangeBaseSpinMinus = NodePath("MarginContainer/VBoxContainer/PanelContainer2/HBoxContainer/Minus")
-ChangeBaseSpinLabel = NodePath("MarginContainer/VBoxContainer/PanelContainer2/HBoxContainer/Display")
+momentum_mode_check_button = NodePath("MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/CheckButton")
+change_base_spin_plus = NodePath("MarginContainer/VBoxContainer/PanelContainer2/HBoxContainer/Plus")
+change_base_spin_minus = NodePath("MarginContainer/VBoxContainer/PanelContainer2/HBoxContainer/Minus")
+change_base_spin_label = NodePath("MarginContainer/VBoxContainer/PanelContainer2/HBoxContainer/Display")
 change_base_spin_increment = 1.0
-ChangeManualSpinPlus = NodePath("MarginContainer/VBoxContainer/PanelContainer3/HBoxContainer/Plus")
-ChangeManualSpinMinus = NodePath("MarginContainer/VBoxContainer/PanelContainer3/HBoxContainer/Minus")
-ChangeManualSpinLabel = NodePath("MarginContainer/VBoxContainer/PanelContainer3/HBoxContainer/Display")
+change_manual_spin_plus = NodePath("MarginContainer/VBoxContainer/PanelContainer3/HBoxContainer/Plus")
+change_manual_spin_minus = NodePath("MarginContainer/VBoxContainer/PanelContainer3/HBoxContainer/Minus")
+change_manual_spin_label = NodePath("MarginContainer/VBoxContainer/PanelContainer3/HBoxContainer/Display")
 change_tool_spin_increment = 0.5
-InputModeOptionButton = NodePath("MarginContainer/VBoxContainer/PanelContainer4/HBoxContainer/OptionButton")
-ShowDetectBoxCheckButton = NodePath("MarginContainer/VBoxContainer/PanelContainer5/HBoxContainer/CheckButton")
-CameraModeOptionButton = NodePath("MarginContainer/VBoxContainer/PanelContainer6/HBoxContainer/OptionButton")
+input_mode_option_button = NodePath("MarginContainer/VBoxContainer/PanelContainer4/HBoxContainer/OptionButton")
+show_detect_box_check_button = NodePath("MarginContainer/VBoxContainer/PanelContainer5/HBoxContainer/CheckButton")
+camera_mode_option_button = NodePath("MarginContainer/VBoxContainer/PanelContainer6/HBoxContainer/OptionButton")
 
 [node name="Panel" type="Panel" parent="." unique_id=340774689]
 anchors_preset = 15

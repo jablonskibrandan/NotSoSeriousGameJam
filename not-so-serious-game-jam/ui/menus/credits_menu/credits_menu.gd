@@ -1,10 +1,9 @@
 extends Control
+class_name CreditsMenu
 
 signal close_requested()
 
 @onready var _back_btn: Button = %BackButton
-@onready var _sfx_hover: AudioStreamPlayer = $SFX/Hover
-@onready var _sfx_click: AudioStreamPlayer = $SFX/Click
 
 
 func _ready() -> void:
@@ -17,7 +16,7 @@ func _ready() -> void:
 
 
 func _on_back_pressed() -> void:
-	_sfx_click.play()
+	MusicManager.play_ui_click()
 	close_requested.emit()
 
 
@@ -27,6 +26,6 @@ func _on_active_state_changed(btn: Button) -> void:
 	
 	var target_alpha: float = UIConstants.BRIGHT_ALPHA if is_active else UIConstants.DIM_ALPHA
 	if is_active:
-		_sfx_hover.play()
+		MusicManager.play_ui_hover()
 	
 	tween.tween_property(btn, "modulate:a", target_alpha, UIConstants.TWEEN_DURATION)

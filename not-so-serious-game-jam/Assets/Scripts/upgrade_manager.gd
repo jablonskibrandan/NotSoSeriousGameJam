@@ -1,20 +1,16 @@
 extends Node
 class_name UpgradeManager
 
-@export var planet_orbit: PlanetOrbit
 @export var game_data: GameData
 @export var spin_input: SpinInput
 
 @export var upgrade_button_configs: Array[UpgradeButtonConfig] = []
 @export var drag_strength_multiplier: float = 0.2
 
-var total_rotations_seen: int = 0
 var button_to_config: Dictionary = {}
 var purchased_counts_by_item_id: Dictionary = {}
 
 func _ready() -> void:
-	if planet_orbit != null:
-		planet_orbit.rotation_completed.connect(on_planet_rotation_completed)
 		
 	for config: UpgradeButtonConfig in upgrade_button_configs:
 		if config == null:
@@ -29,9 +25,7 @@ func _process(delta: float) -> void:
 	update_cooldowns(delta)
 	update_all_unlocks()
 
-func on_planet_rotation_completed(rotation_amount: int) -> void:
-	total_rotations_seen += rotation_amount
-	update_all_unlocks()
+
 
 func update_all_unlocks() -> void:
 	for config: UpgradeButtonConfig in upgrade_button_configs:
@@ -71,21 +65,15 @@ func apply_upgrade(config: UpgradeButtonConfig) -> void:
 			if game_data != null:
 				var rad_increase := deg_to_rad(config.spin_increase_amount)
 				game_data.increase_base_spin(rad_increase)
-			elif planet_orbit != null:
-				planet_orbit.increase_base_spin_per_second(config.spin_increase_amount)
 
 		UpgradeButtonConfig.EffectType.DRAG_STRENGTH:
 			if spin_input != null:
 				spin_input.drag_sensitivity += config.drag_strength_bonus * drag_strength_multiplier
 				spin_input.drag_force += config.drag_strength_bonus * drag_strength_multiplier
-			elif planet_orbit != null:
-				planet_orbit.increase_drag_spin_strength(config.drag_strength_bonus)
 
 		UpgradeButtonConfig.EffectType.ACTIVE_SPIN_BOOST:
 			if spin_input != null:
 				spin_input.add_active_spin_boost(config.active_spin_boost_amount)
-			elif planet_orbit != null:
-				planet_orbit.add_active_spin_boost(config.active_spin_boost_amount)
 
 			if config.cooldown_seconds > 0.0:
 				config.cooldown_remaining = config.cooldown_seconds

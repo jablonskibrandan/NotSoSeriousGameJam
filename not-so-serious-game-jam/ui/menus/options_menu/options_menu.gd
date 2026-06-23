@@ -13,10 +13,10 @@ const _WINDOW_MODES: Array[int] = [Window.MODE_FULLSCREEN, Window.MODE_WINDOWED,
 @onready var _general_tab_btn: Button = %GeneralTabBtn
 @onready var _controls_tab_btn: Button = %ControlsTabBtn
 
-@onready var _resolution_cycle = %ResolutionCycle
-@onready var _window_mode_cycle = %WindowModeCycle
-@onready var _fps_cycle = %FpsCycle
-@onready var _vsync_toggle = %VsyncToggle
+@onready var _resolution_cycle: Control = %ResolutionCycle
+@onready var _window_mode_cycle: Control = %WindowModeCycle
+@onready var _fps_cycle: Control = %FpsCycle
+@onready var _vsync_toggle: Control = %VsyncToggle
 
 @onready var _master_slider: HSlider = %MasterSlider
 @onready var _sfx_slider: HSlider = %SfxSlider
@@ -29,8 +29,6 @@ const _WINDOW_MODES: Array[int] = [Window.MODE_FULLSCREEN, Window.MODE_WINDOWED,
 const _ROW_SCENE: PackedScene = preload("res://ui/menus/options_menu/keybind_row.tscn")
 
 @onready var _back_btn: Button = %BackButton
-@onready var _sfx_hover: AudioStreamPlayer = $SFX/Hover
-@onready var _sfx_click: AudioStreamPlayer = $SFX/Click
 
 var _staged_resolution: Vector2i
 
@@ -82,19 +80,19 @@ func _refresh_button_states() -> void:
 
 
 func _on_general_tab_pressed() -> void:
-	_sfx_click.play()
+	MusicManager.play_ui_click()
 	_show_tab(_general_panel, _general_tab_btn)
 
 
 func _on_controls_tab_pressed() -> void:
-	_sfx_click.play()
+	MusicManager.play_ui_click()
 	_show_tab(_controls_panel, _controls_tab_btn)
 
 
 
 
 func _on_back_pressed() -> void:
-	_sfx_click.play()
+	MusicManager.play_ui_click()
 	SettingsManager.save_settings()
 	close_requested.emit()
 
@@ -192,7 +190,7 @@ func _make_bind_row(action: StringName) -> Control:
 	row.get_node("NameLabel").text = SettingsManager.ACTION_LABELS.get(action, action)
 
 	var kbm_ev: InputEvent = SettingsManager.get_kbm_event_for(action)
-	var kbm_icon = SettingsManager.get_icon_for_event(kbm_ev)
+	var kbm_icon: Texture2D = SettingsManager.get_icon_for_event(kbm_ev)
 	if kbm_icon:
 		row.get_node("KbmIcon").texture = kbm_icon
 
@@ -207,7 +205,7 @@ func _on_active_state_changed(node: Control) -> void:
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	
 	if is_active:
-		_sfx_hover.play()
+		MusicManager.play_ui_hover()
 		tween.tween_property(node, "modulate", UIConstants.HOVER_MODULATE, UIConstants.TWEEN_DURATION)
 		tween.tween_property(node, "scale", UIConstants.HOVER_SCALE, UIConstants.TWEEN_DURATION)
 	else:

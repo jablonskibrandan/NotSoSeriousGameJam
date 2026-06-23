@@ -86,7 +86,7 @@ func save_settings() -> void:
 
 
 func get_kbm_event_for(action: StringName) -> InputEvent:
-	for ev in InputMap.action_get_events(action):
+	for ev: InputEvent in InputMap.action_get_events(action):
 		if ev is InputEventKey or ev is InputEventMouseButton:
 			return ev
 	return null
@@ -99,8 +99,8 @@ func get_icon_dir() -> String:
 func get_icon_path_for_event(ev: InputEvent) -> String:
 	if not ev: return ""
 	if ev is InputEventKey or ev is InputEventMouseButton:
-		var file_name = _get_kbm_icon_filename(ev)
-		if file_name: return get_icon_dir() + file_name
+		var file_name := _get_kbm_icon_filename(ev)
+		if not file_name.is_empty(): return get_icon_dir() + file_name
 	return ""
 
 
@@ -113,8 +113,9 @@ func get_icon_for_event(ev: InputEvent) -> Texture2D:
 
 func _get_kbm_icon_filename(ev: InputEvent) -> String:
 	if ev is InputEventKey:
-		var k: int = ev.keycode
-		if k == KEY_NONE: k = ev.physical_keycode
+		var key_event := ev as InputEventKey
+		var k: int = key_event.keycode
+		if k == KEY_NONE: k = key_event.physical_keycode
 		if k == KEY_NONE: return ""
 		var clean: String = _KBM_KEY_NAMES.get(k, OS.get_keycode_string(k))
 		return "T_" + clean.replace(" ", "_").replace("Kp", "") + "_Key_White.png"
