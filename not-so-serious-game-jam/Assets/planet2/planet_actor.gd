@@ -1,3 +1,4 @@
+@icon("res://Assets/icons/icon_assets/addons/at-icons/node3d/sphere.svg")
 extends Node3D
 class_name PlanetActor
 

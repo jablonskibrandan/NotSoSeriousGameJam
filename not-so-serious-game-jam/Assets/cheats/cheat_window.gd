@@ -1,3 +1,4 @@
+@icon("res://Assets/icons/icon_assets/addons/at-icons/node/window_script.svg")
 extends Window
 
 @export var game_data: GameData

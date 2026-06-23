@@ -1,3 +1,4 @@
+@icon("res://Assets/icons/icon_assets/addons/at-icons/node/orbit.svg")
 extends Node
 class_name GameData
 

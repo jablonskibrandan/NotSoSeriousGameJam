@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://ch5ric2wnrrn8" path="res://Assets/camera/orbit_cam.gd" id="7_45pbi"]
 [ext_resource type="PackedScene" uid="uid://dw43uo4g753qt" path="res://Assets/Scenes/sun.tscn" id="8_10uwm"]
 [ext_resource type="PackedScene" uid="uid://b5ahqutymo2b4" path="res://Assets/cheats/cheat_window.tscn" id="9_ltvhl"]
-[ext_resource type="Script" uid="uid://clbyk23aocoxq" path="res://Assets/cheats/debug_spin_label.gd" id="10_45pbi"]
 [ext_resource type="Script" uid="uid://byx65bi4ojs6" path="res://Assets/Scripts/upgrade_manager.gd" id="11_upg"]
 [ext_resource type="PackedScene" uid="uid://cfl22f60lj00j" path="res://ui/hud/simple_hud.tscn" id="12_hud"]
 [ext_resource type="Script" uid="uid://cbqv30huct3gr" path="res://Assets/Scripts/upgrade_button_config.gd" id="13_cfg"]
@@ -65,14 +64,11 @@ environment = SubResource("Environment_d6dbw")
 [node name="GameData" type="Node" parent="." unique_id=397258381]
 script = ExtResource("2_d6dbw")
 
-[node name="PlanetActor" type="Node3D" parent="." unique_id=798040657 node_paths=PackedStringArray("game_data", "sun_anchor")]
-script = ExtResource("3_wj7pq")
+[node name="UpgradeManager" type="Node" parent="." unique_id=1484635140 node_paths=PackedStringArray("game_data", "spin_input")]
+script = ExtResource("11_upg")
 game_data = NodePath("../GameData")
-sun_anchor = NodePath("../Sun")
-
-[node name="LowPolyContinents" parent="PlanetActor" unique_id=1481491300 instance=ExtResource("4_7n5h7")]
-
-[node name="LowPolyOcean" parent="PlanetActor" unique_id=80674319 instance=ExtResource("5_ltvhl")]
+spin_input = NodePath("../SpinInput")
+upgrade_button_configs = Array[ExtResource("13_cfg")]([SubResource("Resource_kite"), SubResource("Resource_windmill"), SubResource("Resource_rocket"), SubResource("Resource_boost")])
 
 [node name="SpinInput" type="ReferenceRect" parent="." unique_id=375970274 node_paths=PackedStringArray("game_data", "orbit_cam")]
 custom_minimum_size = Vector2(1500, 900)
@@ -98,6 +94,15 @@ _is_momentum_enabled = true
 game_data = NodePath("../GameData")
 orbit_cam = NodePath("../OrbitCam")
 
+[node name="PlanetActor" type="Node3D" parent="." unique_id=798040657 node_paths=PackedStringArray("game_data", "sun_anchor")]
+script = ExtResource("3_wj7pq")
+game_data = NodePath("../GameData")
+sun_anchor = NodePath("../Sun")
+
+[node name="LowPolyContinents" parent="PlanetActor" unique_id=1481491300 instance=ExtResource("4_7n5h7")]
+
+[node name="LowPolyOcean" parent="PlanetActor" unique_id=80674319 instance=ExtResource("5_ltvhl")]
+
 [node name="OrbitCam" type="Camera3D" parent="." unique_id=1199803044 node_paths=PackedStringArray("anchor")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.653574, 0)
 script = ExtResource("7_45pbi")
@@ -117,31 +122,11 @@ light_energy = 200.0
 omni_range = 205.74979
 
 [node name="CheatWindow" parent="." unique_id=982572988 node_paths=PackedStringArray("game_data", "spin_input", "orbit_cam") instance=ExtResource("9_ltvhl")]
-position = Vector2i(47, 607)
+position = Vector2i(0, 36)
 size = Vector2i(300, 289)
 game_data = NodePath("../GameData")
 spin_input = NodePath("../SpinInput")
 orbit_cam = NodePath("../OrbitCam")
 change_tool_spin_increment = 1.0
-
-[node name="Label" type="Label" parent="." unique_id=1872573843 node_paths=PackedStringArray("game_data")]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -118.0
-offset_top = 30.0
-offset_right = 126.0
-offset_bottom = 85.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 25
-text = "SHOW SPINS"
-script = ExtResource("10_45pbi")
-game_data = NodePath("../GameData")
-
-[node name="UpgradeManager" type="Node" parent="." unique_id=1484635140 node_paths=PackedStringArray("game_data", "spin_input")]
-script = ExtResource("11_upg")
-game_data = NodePath("../GameData")
-spin_input = NodePath("../SpinInput")
-upgrade_button_configs = Array[ExtResource("13_cfg")]([SubResource("Resource_kite"), SubResource("Resource_windmill"), SubResource("Resource_rocket"), SubResource("Resource_boost")])
 
 [node name="SimpleHUD" parent="." unique_id=182939103 instance=ExtResource("12_hud")]
