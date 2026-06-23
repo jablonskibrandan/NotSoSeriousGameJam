@@ -8,6 +8,7 @@ class_name SpinInput
 @export_category("Momentum Mode")
 @export var drag_force: float = 0.5
 @export var momentum_falloff: float = 0.9
+@export var _is_momentum_enabled: bool = false
 @export_category("References")
 @export var game_data: GameData
 @export var orbit_cam: OrbitCam
@@ -19,8 +20,8 @@ enum INPUT_MODE {
 
 var _is_dragging_mouse: bool = false
 var _last_mouse_position_x: float = 0.0
-var _is_momentum_enabled: bool = false
 var _momentum: float = 0.0
+var _hovered:bool=false
 
 func add_active_spin_boost(amount: float) -> void:
 	# Turn on momentum processing to decay this boost naturally over frames
@@ -31,7 +32,9 @@ func add_active_spin_boost(amount: float) -> void:
 func _ready() -> void:
 	assert(game_data, "Please assign game_data in SpinInput")
 	assert(orbit_cam, "Please assign orbit_cam in SpinInput")
-
+	mouse_entered.connect(func()->void:_hovered=true)
+	mouse_exited.connect(func()->void:_hovered=false)
+	
 func _gui_input(event: InputEvent) -> void:
 	var mouse_pos := get_global_mouse_position()
 	var offset := mouse_pos - get_viewport().get_visible_rect().size / 2.0
@@ -44,7 +47,6 @@ func _gui_input(event: InputEvent) -> void:
 		else:
 			_is_dragging_mouse = true
 	
-	orbit_cam.dual_mode_hovering = mouse_dist_to_center > get_virtual_radius() ** 2.0
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_released("drag_object"):
@@ -71,6 +73,11 @@ func _process(delta: float) -> void:
 			game_data.increase_rotation(spin_amount)
 	
 	queue_redraw()
+	var mouse_pos := get_global_mouse_position()
+	var offset := mouse_pos - get_viewport().get_visible_rect().size / 2.0
+	var mouse_dist_to_center := offset.length_squared()
+	var outside_planet:bool=mouse_dist_to_center > get_virtual_radius() ** 2.0
+	orbit_cam.dual_mode_hovering=outside_planet and _hovered
 	
 func _draw() -> void:
 	if should_show_virtual_radius:
@@ -92,3 +99,6 @@ func get_virtual_radius() -> float:
 	var ratio := rad_to_deg(angle) / orbit_cam.fov
 	var height := 1080.0 * ratio
 	return height
+
+
+	

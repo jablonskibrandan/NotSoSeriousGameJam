@@ -14,7 +14,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[node name="CheatWindow" type="Window" unique_id=982572988 node_paths=PackedStringArray("momentum_mode_check_button", "change_base_spin_plus", "change_base_spin_minus", "change_base_spin_label", "change_manual_spin_plus", "change_manual_spin_minus", "change_manual_spin_label", "input_mode_option_button", "show_detect_box_check_button", "camera_mode_option_button")]
+[node name="CheatWindow" type="Window" unique_id=982572988 node_paths=PackedStringArray("momentum_mode_check_button", "change_base_spin_plus", "change_base_spin_minus", "change_base_spin_line_edit", "change_manual_spin_plus", "change_manual_spin_minus", "change_manual_spin_line_edit", "input_mode_option_button", "show_detect_box_check_button", "camera_mode_option_button")]
 oversampling_override = 1.0
 position = Vector2i(855, 81)
 size = Vector2i(300, 500)
@@ -22,11 +22,11 @@ script = ExtResource("1_5wk44")
 momentum_mode_check_button = NodePath("MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/CheckButton")
 change_base_spin_plus = NodePath("MarginContainer/VBoxContainer/PanelContainer2/HBoxContainer/Plus")
 change_base_spin_minus = NodePath("MarginContainer/VBoxContainer/PanelContainer2/HBoxContainer/Minus")
-change_base_spin_label = NodePath("MarginContainer/VBoxContainer/PanelContainer2/HBoxContainer/Display")
+change_base_spin_line_edit = NodePath("MarginContainer/VBoxContainer/PanelContainer2/HBoxContainer/Display")
 change_base_spin_increment = 1.0
 change_manual_spin_plus = NodePath("MarginContainer/VBoxContainer/PanelContainer3/HBoxContainer/Plus")
 change_manual_spin_minus = NodePath("MarginContainer/VBoxContainer/PanelContainer3/HBoxContainer/Minus")
-change_manual_spin_label = NodePath("MarginContainer/VBoxContainer/PanelContainer3/HBoxContainer/Display")
+change_manual_spin_line_edit = NodePath("MarginContainer/VBoxContainer/PanelContainer3/HBoxContainer/Display")
 change_tool_spin_increment = 0.5
 input_mode_option_button = NodePath("MarginContainer/VBoxContainer/PanelContainer4/HBoxContainer/OptionButton")
 show_detect_box_check_button = NodePath("MarginContainer/VBoxContainer/PanelContainer5/HBoxContainer/CheckButton")
@@ -79,7 +79,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(1, 1, 1, 0.68235296)
 bbcode_enabled = true
-text = "Auto Spin"
+text = "Auto Spin (rps)"
 fit_content = true
 scroll_active = false
 autowrap_mode = 2
@@ -90,17 +90,11 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 text = "-"
 
-[node name="Display" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelContainer2/HBoxContainer" unique_id=1513383123]
+[node name="Display" type="LineEdit" parent="MarginContainer/VBoxContainer/PanelContainer2/HBoxContainer" unique_id=58358430]
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 4
-theme_override_colors/default_color = Color(1, 1, 1, 0.68235296)
-bbcode_enabled = true
 text = "0"
-fit_content = true
-scroll_active = false
-autowrap_mode = 2
-horizontal_alignment = 1
+alignment = 1
 
 [node name="Plus" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/HBoxContainer" unique_id=1236806325]
 layout_mode = 2
@@ -139,31 +133,27 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(1, 1, 1, 0.68235296)
 bbcode_enabled = true
-text = "Manual Power"
+text = "Manual Force/Sens"
 fit_content = true
 scroll_active = false
 autowrap_mode = 2
 
 [node name="Minus" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer3/HBoxContainer" unique_id=321868302]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "-"
 
-[node name="Display" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelContainer3/HBoxContainer" unique_id=2091314765]
+[node name="Display" type="LineEdit" parent="MarginContainer/VBoxContainer/PanelContainer3/HBoxContainer" unique_id=2049900471]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_colors/default_color = Color(1, 1, 1, 0.68235296)
-bbcode_enabled = true
 text = "0"
-fit_content = true
-scroll_active = false
-autowrap_mode = 2
-horizontal_alignment = 1
+alignment = 1
 
 [node name="Plus" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer3/HBoxContainer" unique_id=344802016]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "+"
 

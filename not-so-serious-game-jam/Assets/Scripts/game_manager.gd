@@ -48,8 +48,6 @@ func add_to_current_currency(money_to_add: int) -> void:
 	current_currency += money_to_add
 	currency_changed.emit(current_currency)
 
-
-
 func try_spend_currency(amount: int) -> bool:
 	if current_currency < amount:
 		return false
