@@ -1,7 +1,6 @@
 # Godot generated files
 .import/
 *.import
-*.uid
 .export/
 export.cfg
 export_credentials.cfg
