@@ -1,124 +1,185 @@
-[gd_scene format=3 uid="uid://hxvrc2ie15kc"]
+[gd_scene load_steps=10 format=3 uid="uid://hxvrc2ie15kc"]
 
 [ext_resource type="Script" path="res://ui/hud/upgrade_card.gd" id="1_script"]
-[ext_resource type="FontFile" path="res://Assets/fonts/oswald/static/Oswald-Bold.ttf" id="2_font_bold"]
-[ext_resource type="FontFile" path="res://Assets/fonts/oswald/static/Oswald-Regular.ttf" id="3_font_reg"]
+[ext_resource type="FontFile" path="res://Assets/fonts/kidspace/MOKidspace-Trial.ttf" id="2_font_kidspace"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
 content_margin_left = 12.0
-content_margin_top = 8.0
+content_margin_top = 10.0
 content_margin_right = 12.0
-content_margin_bottom = 8.0
-bg_color = Color(1, 0.921569, 0.760784, 1)
+content_margin_bottom = 10.0
+bg_color = Color(0.0784314, 0.109804, 0.180392, 0.95)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color(0.290196, 0.215686, 0.156863, 1)
+border_color = Color(0.180392, 0.25098, 0.380392, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.25)
+shadow_size = 6
+shadow_offset = Vector2(2, 2)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
-bg_color = Color(0.0784314, 0.721569, 0.65098, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icon_panel"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0588235, 0.0784314, 0.12549, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color(0.0588235, 0.462745, 0.431373, 1)
+border_color = Color(0, 0.960784, 0.831373, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_title_banner"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 0.623529, 0.109804, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(1, 0.623529, 0.109804, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.458824, 0, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
-bg_color = Color(0.176471, 0.831373, 0.74902, 1)
+bg_color = Color(1, 0.713726, 0.0117647, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color(0.0784314, 0.721569, 0.65098, 1)
+border_color = Color(1, 0.623529, 0.109804, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
-bg_color = Color(0.0588235, 0.462745, 0.431373, 1)
+bg_color = Color(0.909804, 0.54902, 0, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color(0.0666667, 0.368627, 0.34902, 1)
+border_color = Color(0.698039, 0.34902, 0, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_disabled"]
-bg_color = Color(0.611765, 0.639216, 0.686275, 1)
+bg_color = Color(0.117647, 0.14902, 0.219608, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color(0.294118, 0.333333, 0.388235, 1)
+border_color = Color(0.0784314, 0.0980392, 0.14902, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="UpgradeCard" type="PanelContainer"]
-custom_minimum_size = Vector2(350, 0)
-offset_right = 350.0
-offset_bottom = 66.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+[node name="UpgradeCard" type="MarginContainer"]
+custom_minimum_size = Vector2(440, 115)
+offset_right = 440.0
+offset_bottom = 115.0
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
 script = ExtResource("1_script")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 2
-theme_override_constants/separation = 12
-
-[node name="IconRect" type="TextureRect" parent="HBoxContainer"]
+[node name="InnerPanel" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InnerPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="IconPanel" type="PanelContainer" parent="InnerPanel/HBoxContainer"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_icon_panel")
+
+[node name="IconRect" type="TextureRect" parent="InnerPanel/HBoxContainer/IconPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="TextContainer" type="VBoxContainer" parent="InnerPanel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 4
 
-[node name="TitleLabel" type="Label" parent="HBoxContainer/TextContainer"]
+[node name="TitlePanel" type="PanelContainer" parent="InnerPanel/HBoxContainer/TextContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_title_banner")
+
+[node name="TitleLabel" type="Label" parent="InnerPanel/HBoxContainer/TextContainer/TitlePanel"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.290196, 0.215686, 0.156863, 1)
-theme_override_fonts/font = ExtResource("2_font_bold")
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.145098, 0.156863, 0.188235, 1)
+theme_override_fonts/font = ExtResource("2_font_kidspace")
 theme_override_font_sizes/font_size = 18
+text = "Upgrade"
 
-[node name="DescLabel" type="Label" parent="HBoxContainer/TextContainer"]
+[node name="StatsLabel" type="Label" parent="InnerPanel/HBoxContainer/TextContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.388235, 0.317647, 0.278431, 1)
-theme_override_fonts/font = ExtResource("3_font_reg")
-theme_override_font_sizes/font_size = 13
-autowrap_mode = 3
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.701961, 0.760784, 0.85098, 1)
+theme_override_fonts/font = ExtResource("2_font_kidspace")
+theme_override_font_sizes/font_size = 12
+text = "Owned: 0
+Spin Force: +0
+Rotations: 0"
 
-[node name="BuyButton" type="Button" parent="HBoxContainer"]
+[node name="BuyButton" type="Button" parent="InnerPanel/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 40)
+custom_minimum_size = Vector2(140, 45)
 layout_mode = 2
+size_flags_horizontal = 8
 size_flags_vertical = 4
-theme_override_colors/font_disabled_color = Color(0.898039, 0.901961, 0.921569, 1)
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.886275, 0.909804, 0.941176, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_font_bold")
+theme_override_colors/font_disabled_color = Color(0.352941, 0.4, 0.501961, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.145098, 0.156863, 0.188235, 1)
+theme_override_colors/font_hover_color = Color(0.145098, 0.156863, 0.188235, 1)
+theme_override_colors/font_pressed_color = Color(0.145098, 0.156863, 0.188235, 1)
+theme_override_colors/font_focus_color = Color(0.145098, 0.156863, 0.188235, 1)
+theme_override_colors/font_color = Color(0.145098, 0.156863, 0.188235, 1)
+theme_override_fonts/font = ExtResource("2_font_kidspace")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")

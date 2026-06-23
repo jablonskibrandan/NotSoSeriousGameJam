@@ -14,8 +14,10 @@ bus = &"Music"
 
 [node name="Click" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("2_click")
+max_polyphony = 8
 bus = &"SFX"
 
 [node name="Hover" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("3_hover")
+max_polyphony = 8
 bus = &"SFX"

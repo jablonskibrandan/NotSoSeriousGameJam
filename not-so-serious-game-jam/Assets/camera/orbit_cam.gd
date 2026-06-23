@@ -25,12 +25,19 @@ var dual_mode_hovering:bool=false
 var _initial_mouse_position:Vector2
 var _inital_angle:Vector2
 
+# Juice & Shake Properties
+@export var shake_decay: float = 5.0
+var shake_intensity: float = 0.0
+
 func _ready() -> void:
 	angle.x=deg_to_rad(initial_angle_deg.x)
 	angle.y=deg_to_rad(initial_angle_deg.y)
 	distance=initial_distance
 	
 func _process(delta: float) -> void:
+	if shake_intensity > 0.0:
+		shake_intensity = maxf(0.0, shake_intensity - shake_decay * delta)
+
 	if Input.is_action_just_pressed("pan_camera"):
 		_initial_mouse_position=get_viewport().get_mouse_position()
 		_inital_angle=angle
@@ -58,10 +65,22 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("drag_object") and camera_mode==MODE.DualLeftClick:
 		dragging=false
 		
+func add_shake(intensity: float) -> void:
+	shake_intensity = clamp(shake_intensity + intensity, 0.0, 1.5)
+
 func move_camera()->void:
 	var angle_vector:=Vector3.FORWARD
 	angle_vector*=distance
 	angle_vector=angle_vector.rotated(Vector3.LEFT,angle.y).rotated(Vector3.UP,angle.x)
 	var anchor_pos:=anchor.global_position
-	global_position=anchor_pos+angle_vector
+	
+	var offset := Vector3.ZERO
+	if shake_intensity > 0.0:
+		offset = Vector3(
+			randf_range(-shake_intensity, shake_intensity),
+			randf_range(-shake_intensity, shake_intensity),
+			randf_range(-shake_intensity, shake_intensity)
+		)
+		
+	global_position = anchor_pos + angle_vector + offset
 	look_at(anchor_pos)

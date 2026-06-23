@@ -10,6 +10,7 @@ class_name UpgradeManager
 
 var button_to_config: Dictionary = {}
 var purchased_counts_by_item_id: Dictionary = {}
+var rotations_generated: Dictionary = {}
 
 func _ready() -> void:
 		
@@ -25,6 +26,24 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	update_cooldowns(delta)
 	update_all_unlocks()
+	_update_rotations_generated(delta)
+
+func get_rotations_generated(config: UpgradeButtonConfig) -> float:
+	if rotations_generated.has(config):
+		return rotations_generated[config]
+	return 0.0
+
+func _update_rotations_generated(delta: float) -> void:
+	if game_data == null:
+		return
+	for config: UpgradeButtonConfig in upgrade_button_configs:
+		if config == null or config.purchased_count == 0:
+			continue
+		if config.effect_type == UpgradeButtonConfig.EffectType.AUTO_SPIN:
+			if not rotations_generated.has(config):
+				rotations_generated[config] = 0.0
+			var rps := deg_to_rad(config.spin_increase_amount) * config.purchased_count / (2.0 * PI)
+			rotations_generated[config] += rps * delta
 
 
 

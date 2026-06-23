@@ -18,6 +18,7 @@ extends Window
 @export var camera_mode_option_button: OptionButton
 
 func _ready() -> void:
+	visible = false
 	if momentum_mode_check_button:
 		momentum_mode_check_button.toggled.connect(func(to: bool) -> void:
 			if spin_input:
@@ -113,3 +114,9 @@ func _process(delta: float) -> void:
 				change_manual_spin_line_edit.text = "%.1f" % [spin_input.drag_force]
 			else:
 				change_manual_spin_line_edit.text = "%.1f" % [spin_input.drag_sensitivity]
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_QUOTELEFT:
+			visible = false
+			get_viewport().set_input_as_handled()

@@ -13,6 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://cfl22f60lj00j" path="res://ui/hud/simple_hud.tscn" id="12_hud"]
 [ext_resource type="Script" uid="uid://5jubq08m7ihk" path="res://Assets/player_progression.gd" id="13_6betm"]
 [ext_resource type="Script" uid="uid://cbqv30huct3gr" path="res://Assets/Scripts/upgrade_button_config.gd" id="13_cfg"]
+[ext_resource type="Texture2D" uid="uid://yaviybv02uov" path="res://Assets/icons/icon_assets/addons/at-icons/control/paper_airplane.svg" id="14_kite"]
+[ext_resource type="Texture2D" uid="uid://dgo647gy7vv0t" path="res://Assets/icons/icon_assets/addons/at-icons/control/wind.svg" id="15_windmill"]
+[ext_resource type="Texture2D" uid="uid://ceqgvk424j2f3" path="res://Assets/icons/icon_assets/addons/at-icons/control/fire.svg" id="16_rocket"]
+[ext_resource type="Texture2D" uid="uid://ba1whmswcfw8u" path="res://Assets/icons/icon_assets/addons/at-icons/control/gauge.svg" id="17_boost"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_40y28"]
 panorama = ExtResource("1_8d1l8")
@@ -28,6 +32,7 @@ sky = SubResource("Sky_l7e31")
 script = ExtResource("13_cfg")
 display_name = "Kites"
 description = "Solar-wind powered kites speed up rotation!"
+icon = ExtResource("14_kite")
 required_amount = 1
 currency_cost = 120
 spin_increase_amount = 5.0
@@ -36,6 +41,7 @@ spin_increase_amount = 5.0
 script = ExtResource("13_cfg")
 display_name = "Windmills"
 description = "Harness atmospheric friction to auto-spin!"
+icon = ExtResource("15_windmill")
 required_amount = 10
 currency_cost = 500
 spin_increase_amount = 12.0
@@ -44,6 +50,7 @@ spin_increase_amount = 12.0
 script = ExtResource("13_cfg")
 display_name = "Rockets"
 description = "Boosts your drag momentum!"
+icon = ExtResource("16_rocket")
 required_amount = 50
 currency_cost = 1200
 effect_type = 1
@@ -53,6 +60,7 @@ drag_strength_bonus = 1.5
 script = ExtResource("13_cfg")
 display_name = "Turbo Spin Boost"
 description = "Instantly adds speed, cooling down over 15s"
+icon = ExtResource("17_boost")
 required_amount = 100
 currency_cost = 2500
 effect_type = 2
