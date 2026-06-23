@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://y0tvg3bu2670"]
+
+[ext_resource type="PackedScene" uid="uid://cfym4f3lwvfs0" path="res://Assets/Art/extra planets/Saturn/Rings.glb" id="1_42dlg"]
+[ext_resource type="Shader" uid="uid://b6v7mq6cbq6px" path="res://Assets/Art/extra planets/Saturn/rings.gdshader" id="2_54dpq"]
+[ext_resource type="Texture2D" uid="uid://d3p3tid0uy84t" path="res://Assets/Art/extra planets/Saturn/Rings_Alpha.png" id="3_vmdun"]
+[ext_resource type="Texture2D" uid="uid://qbakjn4fsd3m" path="res://Assets/Art/extra planets/Saturn/Rings_Baked_DIFFUSE_1024.png" id="4_fy7d1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h81t4"]
+render_priority = 0
+shader = ExtResource("2_54dpq")
+shader_parameter/ring_texture = ExtResource("4_fy7d1")
+shader_parameter/alpha_texture = ExtResource("3_vmdun")
+
+[node name="Rings2" unique_id=2126877578 instance=ExtResource("1_42dlg")]
+
+[node name="Rings" parent="." index="0" unique_id=1520529140]
+surface_material_override/0 = SubResource("ShaderMaterial_h81t4")

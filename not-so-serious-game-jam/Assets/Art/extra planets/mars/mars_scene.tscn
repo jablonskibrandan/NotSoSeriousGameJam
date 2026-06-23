@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://drg3vq6fhy5uu"]
+
+[ext_resource type="PackedScene" uid="uid://di0ffqed6lps2" path="res://Assets/Art/extra planets/mars/Mars.glb" id="1_7e84m"]
+[ext_resource type="Material" uid="uid://baqgnj3s0dov5" path="res://Assets/Art/extra planets/mars/Mars.tres" id="2_7htf3"]
+
+[node name="Mars2" unique_id=1819802902 instance=ExtResource("1_7e84m")]
+
+[node name="Mars" parent="." index="0" unique_id=542029819]
+material_override = ExtResource("2_7htf3")

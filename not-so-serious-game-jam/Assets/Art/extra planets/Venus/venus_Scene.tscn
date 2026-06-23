@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dpix084eq5wc6"]
+
+[ext_resource type="PackedScene" uid="uid://ic8io8a4u3h5" path="res://Assets/Art/extra planets/Venus/Venus.glb" id="1_3e210"]
+[ext_resource type="Material" uid="uid://c0i12eesroe6y" path="res://Assets/Art/extra planets/Venus/Venus shader.tres" id="2_7mo1d"]
+
+[node name="Venus2" unique_id=586089721 instance=ExtResource("1_3e210")]
+
+[node name="Venus" parent="." index="0" unique_id=620493675]
+transform = Transform3D(-1.5128028, 0, 2.7676868, 0, 3.15415, 0, -2.7676868, 0, -1.5128028, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_7mo1d")

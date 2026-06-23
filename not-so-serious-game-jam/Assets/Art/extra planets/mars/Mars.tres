@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://baqgnj3s0dov5"]
+
+[ext_resource type="Shader" uid="uid://c2ft87k81oclk" path="res://Assets/Art/extra planets/planet.gdshader" id="1_27an5"]
+[ext_resource type="Texture2D" uid="uid://c15ie1wn8q2i4" path="res://Assets/Art/extra planets/mars/Mars_Baked_DIFFUSE_1024.png" id="2_6nqu8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_27an5")
+shader_parameter/planet_texture = ExtResource("2_6nqu8")

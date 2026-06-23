@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cbjm5086pi158"]
+
+[ext_resource type="Shader" uid="uid://c2ft87k81oclk" path="res://Assets/Art/extra planets/planet.gdshader" id="1_74efp"]
+[ext_resource type="Texture2D" uid="uid://d1nn6jpwwuh3m" path="res://Assets/Art/extra planets/Jupiter/Jupiter_Baked_DIFFUSE_1024.png" id="2_gwr31"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_74efp")
+shader_parameter/planet_texture = ExtResource("2_gwr31")

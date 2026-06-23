@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://vjvuictl1cwi"]
+
+[ext_resource type="Shader" uid="uid://c2ft87k81oclk" path="res://Assets/Art/extra planets/planet.gdshader" id="1_dk7rm"]
+[ext_resource type="Texture2D" uid="uid://dwj52p0qnvclj" path="res://Assets/Art/extra planets/mercury/Mercury_Baked_DIFFUSE_1024.png" id="2_y60ec"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_dk7rm")
+shader_parameter/planet_texture = ExtResource("2_y60ec")

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bke3s6p87m27d"]
+
+[ext_resource type="PackedScene" uid="uid://b61xk8x520obg" path="res://Assets/Art/extra planets/Jupiter/Jupiter.glb" id="1_ve33a"]
+
+[node name="Jupiter2" unique_id=355674588 instance=ExtResource("1_ve33a")]

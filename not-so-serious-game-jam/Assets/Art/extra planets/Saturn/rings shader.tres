@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://btkimc3p4lu16"]
+
+[ext_resource type="Shader" uid="uid://b6v7mq6cbq6px" path="res://Assets/Art/extra planets/Saturn/rings.gdshader" id="1_1nbis"]
+[ext_resource type="Texture2D" uid="uid://d3p3tid0uy84t" path="res://Assets/Art/extra planets/Saturn/Rings_Alpha.png" id="2_uad04"]
+[ext_resource type="Texture2D" uid="uid://qbakjn4fsd3m" path="res://Assets/Art/extra planets/Saturn/Rings_Baked_DIFFUSE_1024.png" id="3_w03d3"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_1nbis")
+shader_parameter/ring_texture = ExtResource("3_w03d3")
+shader_parameter/alpha_texture = ExtResource("2_uad04")

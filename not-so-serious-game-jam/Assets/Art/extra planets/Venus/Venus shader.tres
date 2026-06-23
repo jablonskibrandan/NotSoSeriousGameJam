@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c0i12eesroe6y"]
+
+[ext_resource type="Shader" uid="uid://c2ft87k81oclk" path="res://Assets/Art/extra planets/planet.gdshader" id="1_83v7q"]
+[ext_resource type="Texture2D" uid="uid://bpp3rnygn07ql" path="res://Assets/Art/extra planets/Venus/Venus_Baked_DIFFUSE_1024.png" id="2_eda8b"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_83v7q")
+shader_parameter/planet_texture = ExtResource("2_eda8b")
+shader_parameter/glow = Color(0, 0, 0, 1)

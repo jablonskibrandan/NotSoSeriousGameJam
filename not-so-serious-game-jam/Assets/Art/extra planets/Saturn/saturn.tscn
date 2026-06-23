@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bpj6m6vsqan6o"]
+
+[ext_resource type="PackedScene" uid="uid://dsau4510rhelr" path="res://Assets/Art/extra planets/Saturn/Saturn.glb" id="1_lp1ri"]
+[ext_resource type="Texture2D" uid="uid://bkh21utawxoqy" path="res://Assets/Art/extra planets/Saturn/Saturn_Baked_DIFFUSE_1024.png" id="2_i7nlf"]
+[ext_resource type="PackedScene" uid="uid://y0tvg3bu2670" path="res://Assets/Art/extra planets/Saturn/rings.tscn" id="3_i7nlf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xqjnb"]
+albedo_texture = ExtResource("2_i7nlf")
+
+[node name="Saturn2" unique_id=177533478 instance=ExtResource("1_lp1ri")]
+
+[node name="Saturn" parent="." index="0" unique_id=1710010185]
+material_override = SubResource("StandardMaterial3D_xqjnb")
+
+[node name="Rings2" parent="." index="1" unique_id=2126877578 instance=ExtResource("3_i7nlf")]

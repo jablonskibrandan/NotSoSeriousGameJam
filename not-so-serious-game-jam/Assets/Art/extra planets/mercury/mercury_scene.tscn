@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bxfes51utlf3j"]
+
+[ext_resource type="PackedScene" uid="uid://c5q0vw6n5g6ey" path="res://Assets/Art/extra planets/mercury/Mercury.glb" id="1_jfoim"]
+[ext_resource type="Material" uid="uid://vjvuictl1cwi" path="res://Assets/Art/extra planets/mercury/Mercury shader.tres" id="2_7lomt"]
+
+[node name="Mercury2" unique_id=1377198803 instance=ExtResource("1_jfoim")]
+
+[node name="Mercury" parent="." index="0" unique_id=390028821]
+material_override = ExtResource("2_7lomt")
