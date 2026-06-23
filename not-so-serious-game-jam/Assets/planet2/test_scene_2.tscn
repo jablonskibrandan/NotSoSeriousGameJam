@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b5ahqutymo2b4" path="res://Assets/cheats/cheat_window.tscn" id="9_ltvhl"]
 [ext_resource type="Script" uid="uid://byx65bi4ojs6" path="res://Assets/Scripts/upgrade_manager.gd" id="11_upg"]
 [ext_resource type="PackedScene" uid="uid://cfl22f60lj00j" path="res://ui/hud/simple_hud.tscn" id="12_hud"]
+[ext_resource type="Script" uid="uid://5jubq08m7ihk" path="res://Assets/player_progression.gd" id="13_6betm"]
 [ext_resource type="Script" uid="uid://cbqv30huct3gr" path="res://Assets/Scripts/upgrade_button_config.gd" id="13_cfg"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_40y28"]
@@ -61,10 +62,20 @@ cooldown_seconds = 15.0
 [node name="WorldEnvironment" type="WorldEnvironment" unique_id=371894104]
 environment = SubResource("Environment_d6dbw")
 
+[node name="PlayerProgression" type="Node" parent="." unique_id=965481698 node_paths=PackedStringArray("game_data", "spin_input")]
+script = ExtResource("13_6betm")
+game_data = NodePath("../GameData")
+spin_input = NodePath("../SpinInput")
+owned_upgrades = Dictionary[int, int]({
+0: 5,
+67: 10
+})
+metadata/_custom_type_script = "uid://5jubq08m7ihk"
+
 [node name="GameData" type="Node" parent="." unique_id=397258381]
 script = ExtResource("2_d6dbw")
 
-[node name="UpgradeManager" type="Node" parent="." unique_id=1484635140 node_paths=PackedStringArray("game_data", "spin_input")]
+[node name="(old)UpgradeManager" type="Node" parent="." unique_id=1484635140 node_paths=PackedStringArray("game_data", "spin_input")]
 script = ExtResource("11_upg")
 game_data = NodePath("../GameData")
 spin_input = NodePath("../SpinInput")

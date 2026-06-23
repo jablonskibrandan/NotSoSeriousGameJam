@@ -1,0 +1,634 @@
+{
+  "0": {
+	"DISPLAY_NAME": "Null Upgrade",
+	"DESCRIPTION": "This is for testing",
+	"COST_BASE": 5,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 1,
+	"FORCE": 0
+  },
+  "1": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "2": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "3": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "4": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "5": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "6": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "7": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "8": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "9": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "10": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "11": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "12": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "13": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "14": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "15": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "16": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "17": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "18": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "19": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "20": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "21": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "22": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "23": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "24": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "25": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "26": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "27": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "28": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "29": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "30": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "31": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "32": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "33": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "34": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "35": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "36": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "37": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "38": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "39": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "40": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "41": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "42": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "43": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "44": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "45": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "46": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "47": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "48": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "49": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "50": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "51": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "52": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "53": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "54": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "55": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "56": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "57": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "58": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "59": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "60": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "61": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "62": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "63": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "64": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "65": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "66": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "67": {
+	"DISPLAY_NAME": "Secret Force Upgrade",
+	"DESCRIPTION": "Six seven six seven",
+	"COST_BASE": 10,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 5
+  },
+  "68": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "69": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "70": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "71": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "72": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "73": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "74": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "75": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "76": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "77": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  },
+  "78": {
+	"DISPLAY_NAME": null,
+	"DESCRIPTION": null,
+	"COST_BASE": 0,
+	"COST_FACTOR": 0,
+	"AUTO_RPS": 0,
+	"FORCE": 0
+  }
+}

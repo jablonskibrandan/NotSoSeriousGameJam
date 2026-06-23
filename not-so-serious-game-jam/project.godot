@@ -46,8 +46,8 @@ enabled=PackedStringArray("res://addons/console/plugin.cfg")
 
 folder_colors={
 "res://Assets/camera/": "orange",
-"res://Assets/planet/": "orange",
-"res://Assets/planet2/": "orange"
+"res://Assets/planet2/": "orange",
+"res://Assets/upgrades/": "orange"
 }
 
 [input]

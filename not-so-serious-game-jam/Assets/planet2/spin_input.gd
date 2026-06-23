@@ -1,3 +1,4 @@
+@icon("res://Assets/icons/icon_assets/addons/at-icons/control/click.svg")
 extends ReferenceRect
 class_name SpinInput
 

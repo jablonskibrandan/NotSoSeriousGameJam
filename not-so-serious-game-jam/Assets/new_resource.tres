@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="UpgradeButtonConfig" format=3 uid="uid://cp3xd5nv461s4"]
+
+[ext_resource type="Script" uid="uid://cbqv30huct3gr" path="res://Assets/Scripts/upgrade_button_config.gd" id="1_aerc4"]
+
+[resource]
+script = ExtResource("1_aerc4")
+metadata/_custom_type_script = "uid://cbqv30huct3gr"

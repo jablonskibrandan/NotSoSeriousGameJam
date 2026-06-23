@@ -13,9 +13,7 @@ func increase_rotation(amount: float) -> void:
 	amount = max(amount, 0.0)
 	total_rotation += amount
 	_spin_remainder += amount
-	_check_for_spin()
 	
-func _check_for_spin()->void:
 	if _spin_remainder >= 2.0 * PI:
 		var spins_to_add := floori(_spin_remainder / (2.0 * PI))
 		var new_remainder := _spin_remainder - spins_to_add * 2.0 * PI
@@ -30,5 +28,5 @@ func increase_base_spin(amount: float) -> void:
 	_base_spin += amount
 	_base_spin = max(0.0, _base_spin)
 	
-func _process(delta: float) -> void:
-	increase_rotation(delta * _base_spin)
+#func _process(delta: float) -> void:
+	#increase_rotation(delta * _base_spin)
