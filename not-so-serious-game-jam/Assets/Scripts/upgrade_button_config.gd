@@ -18,6 +18,7 @@ enum EffectType {
 @export var button_path: NodePath
 @export var display_name: String = "Upgrade"
 @export_multiline var description: String = ""
+@export var icon: Texture2D
 
 @export_group("Unlock")
 @export var unlock_type: UnlockType = UnlockType.ROTATIONS

@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://hxvrc2ie15kc"]
+
+[ext_resource type="Script" path="res://ui/hud/upgrade_card.gd" id="1_script"]
+[ext_resource type="FontFile" path="res://Assets/fonts/oswald/static/Oswald-Bold.ttf" id="2_font_bold"]
+[ext_resource type="FontFile" path="res://Assets/fonts/oswald/static/Oswald-Regular.ttf" id="3_font_reg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(1, 0.921569, 0.760784, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.290196, 0.215686, 0.156863, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(0.0784314, 0.721569, 0.65098, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0588235, 0.462745, 0.431373, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.176471, 0.831373, 0.74902, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0784314, 0.721569, 0.65098, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+bg_color = Color(0.0588235, 0.462745, 0.431373, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0666667, 0.368627, 0.34902, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_disabled"]
+bg_color = Color(0.611765, 0.639216, 0.686275, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.294118, 0.333333, 0.388235, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="UpgradeCard" type="PanelContainer"]
+custom_minimum_size = Vector2(350, 0)
+offset_right = 350.0
+offset_bottom = 66.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+script = ExtResource("1_script")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="IconRect" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="TitleLabel" type="Label" parent="HBoxContainer/TextContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.290196, 0.215686, 0.156863, 1)
+theme_override_fonts/font = ExtResource("2_font_bold")
+theme_override_font_sizes/font_size = 18
+
+[node name="DescLabel" type="Label" parent="HBoxContainer/TextContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.388235, 0.317647, 0.278431, 1)
+theme_override_fonts/font = ExtResource("3_font_reg")
+theme_override_font_sizes/font_size = 13
+autowrap_mode = 3
+
+[node name="BuyButton" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_disabled_color = Color(0.898039, 0.901961, 0.921569, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.886275, 0.909804, 0.941176, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_font_bold")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
